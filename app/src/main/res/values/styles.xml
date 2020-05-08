@@ -1,0 +1,233 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/roboto</item>
+
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <style name="AppTheme.RadioButton">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.CheckBox">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayout">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/bg_edit_text_hint</item>
+        <item name="colorError">@color/colorDarkError</item>
+    </style>
+
+    <style name="AppTheme.EditText">
+        <item name="colorControlNormal">@color/colorView</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorError">@color/colorDarkError</item>
+    </style>
+
+    <style name="PrimaryActionButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="Text" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/font_14</item>
+    </style>
+
+    <style name="Text.16">
+        <item name="android:textSize">@dimen/font_16</item>
+    </style>
+
+    <style name="Text.20">
+        <item name="android:textSize">@dimen/font_20</item>
+    </style>
+
+    <style name="Text.WhiteLightTransparent">
+        <item name="android:textColor">@color/colorWhiteLightTransparent</item>
+    </style>
+
+    <style name="Text.WhiteLightTransparent.12">
+        <item name="android:textSize">@dimen/font_12</item>
+    </style>
+
+    <style name="Text.Hint">
+        <item name="android:textColor">@color/colorHint</item>
+    </style>
+
+    <style name="Text.Hint.12">
+        <item name="android:textSize">@dimen/font_12</item>
+    </style>
+
+    <style name="Text.Hint.16">
+        <item name="android:textSize">@dimen/font_16</item>
+    </style>
+
+    <style name="Text.LightHint">
+        <item name="android:textColor">@color/colorLightHint</item>
+    </style>
+
+    <style name="Text.Accent">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="Text.Error">
+        <item name="android:textColor">@color/colorError</item>
+        <item name="android:textSize">@dimen/font_12</item>
+    </style>
+
+    <style name="Text.White">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="Text.White.12">
+        <item name="android:textSize">@dimen/font_12</item>
+    </style>
+
+    <style name="Text.White.20">
+        <item name="android:textSize">@dimen/font_20</item>
+    </style>
+
+    <style name="Text.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Bold.16">
+        <item name="android:textSize">@dimen/font_16</item>
+    </style>
+
+    <style name="Text.Bold.20">
+        <item name="android:textSize">@dimen/font_20</item>
+    </style>
+
+    <style name="Text.Bold.White">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="Text.Bold.White.16">
+        <item name="android:textSize">@dimen/font_16</item>
+    </style>
+
+    <style name="Text.Bold.White.20">
+        <item name="android:textSize">@dimen/font_20</item>
+    </style>
+
+    <style name="Text.Bold.Primary">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Button" parent="Widget.AppCompat.Button">
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/bg_button_login</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="MaterialButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="backgroundTint">@color/colorWhite</item>
+        <item name="rippleColor">@color/colorPrimary</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">@dimen/image_card_radius_10</item>
+    </style>
+
+    <style name="MaterialButton.Accent">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="rippleColor">@color/colorAccent</item>
+        <item name="strokeColor">@color/colorAccent</item>
+    </style>
+
+    <style name="RadioButton" parent="AppTheme.RadioButton">
+        <item name="android:theme">@style/RadioButton</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableStart">?android:attr/listChoiceIndicatorSingle</item>
+        <item name="android:layoutDirection">rtl</item>
+    </style>
+
+    <style name="EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_height">@dimen/edit_text_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingBottom">@dimen/default_margin_10</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHint">@color/bg_edit_text_hint</item>
+    </style>
+
+    <style name="EditText.Theme">
+        <item name="android:theme">@style/AppTheme.EditText</item>
+        <item name="android:background">@drawable/bg_edit_text_login</item>
+    </style>
+
+    <style name="EditText.Login">
+        <item name="android:paddingBottom">@dimen/default_margin_4</item>
+        <item name="android:background">@drawable/bg_edit_text_login</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxLength">32</item>
+    </style>
+
+    <style name="EditText.Login.Password">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="LoginTextInputLayout" parent="Widget.Design.TextInputLayout">
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+        <item name="android:theme">@style/AppTheme.TextInputLayout</item>
+    </style>
+
+    <style name="TextFieldInputLayout" parent="Widget.Design.TextInputLayout">
+        <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+        <item name="counterTextColor">@color/colorHint</item>
+    </style>
+
+    <style name="ErrorTextAppearance" parent="TextAppearance.Design.Error">
+        <item name="android:textColor">@color/colorError</item>
+    </style>
+
+    <style name="HintTextAppearance" parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/bg_edit_text_hint</item>
+    </style>
+
+    <style name="AlertDialog.Theme" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/AlertDialog.ButtonColor</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialog.ButtonColor</item>
+    </style>
+
+    <style name="AlertDialog.ButtonColor" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Matisse.Zhihu.Custom">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="bottomToolbar.apply.textColor">@color/colorPrimary</item>
+        <item name="preview.bottomToolbar.apply.textColor">@color/colorPrimary</item>
+        <item name="item.checkCircle.backgroundColor">@color/colorPrimary</item>
+    </style>
+
+</resources>

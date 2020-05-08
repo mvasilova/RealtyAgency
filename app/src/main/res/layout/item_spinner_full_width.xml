@@ -1,0 +1,11 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/text1"
+    style="@style/Text.16"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/edit_text_height"
+    android:ellipsize="middle"
+    android:gravity="start|center_vertical"
+    android:singleLine="true"
+    android:textAlignment="viewStart"
+    tools:ignore="Autofill,LabelFor" />

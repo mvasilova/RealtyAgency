@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/tvServerErrorLabel"
+            style="@style/Text.Bold.20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
+            tools:text="@string/label_server_error" />
+
+        <TextView
+            android:id="@+id/tvServerErrorDescription"
+            style="@style/Text.Hint.16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/default_margin_16"
+            android:gravity="center"
+            android:paddingStart="@dimen/default_margin_16"
+            android:paddingEnd="@dimen/default_margin_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvServerErrorLabel"
+            tools:text="@string/label_server_error_description" />
+
+        <Button
+            android:id="@+id/btnServerErrorConfirm"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:layout_marginEnd="@dimen/default_margin_16"
+            android:text="@string/btn_ok"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvServerErrorDescription"
+            app:layout_constraintWidth_percent="0.4" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/content_connection_error"
+            app:layout_constraintBottom_toTopOf="@id/tvServerErrorLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8"
+            app:srcCompat="@drawable/ic_server_error" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

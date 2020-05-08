@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        style="@style/Text.Bold.White.16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/default_margin_8"
+        android:drawableTop="@drawable/ic_realty_home"
+        android:drawableTint="@color/colorWhiteLightTransparent"
+        android:padding="@dimen/default_margin_8"
+        android:text="@string/app_name" />
+
+    <TextView
+        style="@style/Text.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/default_margin_8"
+        android:padding="@dimen/default_margin_8"
+        android:text="@string/label_wait_loading" />
+
+    <ProgressBar
+        android:id="@+id/pbDialogLoader"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:indeterminate="true"
+        android:theme="@style/AppTheme" />
+
+</FrameLayout>

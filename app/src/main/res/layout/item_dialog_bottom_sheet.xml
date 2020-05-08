@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvDialogTitle"
+    style="@style/Text.16"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawablePadding="@dimen/default_margin_32"
+    android:foreground="?selectableItemBackgroundBorderless"
+    android:padding="@dimen/default_margin_16"
+    tools:drawableStart="@drawable/ic_request_new"
+    tools:text="@string/label_new_request" />

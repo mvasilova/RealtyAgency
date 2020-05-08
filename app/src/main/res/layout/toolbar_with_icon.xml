@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    app:contentInsetStart="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|center_vertical"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/ivClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/default_margin_16"
+                android:layout_marginEnd="@dimen/default_margin_16"
+                android:contentDescription="@string/content_close_screen"
+                android:foreground="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_toolbar_close" />
+
+            <TextView
+                android:id="@+id/tvToolbarTitle"
+                style="@style/Text.Bold.20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/default_margin_16"
+                android:layout_marginEnd="@dimen/default_margin_16"
+                tools:text="@string/app_name" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivFilterRequests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:layout_marginEnd="@dimen/default_margin_16"
+            android:contentDescription="@string/content_filter_requests"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_toolbar_filter" />
+
+        <TextView
+            android:id="@+id/tvButtonConfirm"
+            style="@style/Text.Bold.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:layout_marginEnd="@dimen/default_margin_16"
+            android:foreground="?selectableItemBackgroundBorderless"
+            tools:text="Отправить" />
+
+        <View
+            android:id="@+id/viewToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height_1"
+            android:layout_gravity="bottom"
+            android:background="@color/colorLightView" />
+
+    </FrameLayout>
+
+</androidx.appcompat.widget.Toolbar>

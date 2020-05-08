@@ -1,0 +1,143 @@
+<resources>
+    <string name="app_name">Агентсво недвижимости \"ПНК\"</string>
+    <string name="app_name_full">Агентсво недвижимости\n\"Первая недвижимость Кубани\"</string>
+    <string name="realty_address">г. Горячий Ключ, ул. Ленина, 195б, офис 3</string>
+    <string name="realty_phones">8 (918) 412–95–97, 8 (918) 350–35–97</string>
+
+    <string name="btn_login">Войти</string>
+    <string name="btn_ok">Ок</string>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_allow">Разрешить</string>
+    <string name="btn_forbid">Запретить</string>
+    <string name="btn_send">Отправить</string>
+    <string name="btn_clarify">Уточнить</string>
+    <string name="btn_settings">Настройки</string>
+    <string name="btn_exit">Выйти</string>
+    <string name="btn_repeat">Повторить</string>
+
+    <string name="content_logo">Логотип ПНК</string>
+    <string name="content_image_news">Изображение новости</string>
+    <string name="content_filter_requests">Фильтрация заявок</string>
+    <string name="content_close_screen">Закрыть экран</string>
+    <string name="content_select_criticality">Выбрать критичность</string>
+    <string name="content_select_type_request">Выбрать тип</string>
+    <string name="content_add_picture">Добавить фотографии</string>
+    <string name="content_profile_photo">Изображение пользователя</string>
+    <string name="content_notification">Иконка уведомления</string>
+    <string name="content_connection_error">Ошибка соединения</string>
+
+    <string name="hint_login">Логин</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_name_request">Название</string>
+    <string name="hint_description_request">Описание</string>
+
+    <string name="label_invalid_login">Неверно введен логин или пароль</string>
+    <string name="label_news_title">Новости</string>
+    <string name="label_last_requests_title">Последние заявки</string>
+    <string name="label_responsible">Ответственный</string>
+    <string name="label_new_request">Новая заявка</string>
+    <string name="label_edit_request">Продолжить заполнение</string>
+    <string name="label_location">Местоположение</string>
+    <string name="label_gallery">Галерея</string>
+    <string name="label_take_photo">Сделать фото</string>
+    <string name="label_make_video">Снять видео</string>
+    <string name="label_specify_coordinates">Укажите координаты</string>
+    <string name="label_error_request_name_empty">Название заявки не должно быть пустым</string>
+    <string name="label_error_request_description_empty">Описание заявки не должно быть пустым</string>
+    <string name="label_notifications">Уведомления</string>
+    <string name="label_language">Язык</string>
+    <string name="label_exit">Выход</string>
+    <string name="label_russian_language" translatable="false">Русский</string>
+    <string name="label_english_language" translatable="false">English</string>
+    <string name="label_type">Тип</string>
+    <string name="label_criticality">Критичность</string>
+    <string name="label_mark_criticality">Метка критичности:</string>
+    <string name="label_type_request">Тип заявки:</string>
+    <string name="label_filter_date">Дата</string>
+    <string name="label_filter_new_first">Сначала новые</string>
+    <string name="label_filter_old_first">Сначала старые</string>
+    <string name="label_filter_type_request">Тип заявки</string>
+    <string name="label_filter_mark_of_critical">Метка критичности</string>
+    <string name="label_connection_error">Ошибка соединения\n с сетью</string>
+    <string name="label_connection_error_description">Время ожидания соединения с сетью истекло. Пожалуйста, проверьте подключение и повторите попытку</string>
+    <string name="label_server_error">Ошибка соединения\n с сервером</string>
+    <string name="label_server_error_description">Ожидание ответа от сервера превышено, обратитесь к администратору</string>
+    <string name="label_token_error">Ошибка авторизации</string>
+    <string name="label_token_error_description">Ключ аутентификации устарел, повторите вход</string>
+    <string name="label_auth_error">Ошибка входа</string>
+    <string name="label_auth_error_description">Введённые имя пользователя или пароль неверны. Проверьте правильность введённых данных и повторите попытку</string>
+    <string name="label_common_error">Ошибка</string>
+    <string name="label_common_error_description">Что-то пошло не так. Пожалуйста, попробуйте еще раз</string>
+    <string name="label_unacceptable_format_error">Ошибка отправки заявки</string>
+    <string name="label_unacceptable_format_error_description">Не удалось отправить заявку: вложенные файлы имеют недопустимый тип файла. Пожалуйста, загрузите файлы в формате JPEG, PNG или MP4</string>
+    <string name="label_uploading_error">Ошибка загрузки</string>
+    <string name="label_uploading_error_description">Произошла ошибка при загрузке медиафайла. Пожалуйста, повторите попытку</string>
+
+    <string name="placeholder_coordinates">%1$s, %2$s</string>
+    <string name="placeholder_count_media">%1$d/%2$d</string>
+    <string name="placeholder_sq_metres">%1$s м2</string>
+    <string name="placeholder_acres">%1$s сот.</string>
+    <string name="placeholder_kilometres">%1$s км</string>
+
+    <string name="dialog_title_request_location">Приложение \"Оргхим\" запрашивает доступ к Вашей геопозиции</string>
+    <string name="dialog_message_request_location">Ваша текущая геопозиция будет отображена на карте и использована для предоставления геометки при создании заявки</string>
+    <string name="dialog_title_request_location_never_ask">Предоставьте приложению \"Оргхим\" доступ к службам геолокации в настройках</string>
+    <string name="dialog_message_request_location_never_ask">Для добавления геометки предоставьте доступ к геолокации в настройках системы, чтобы разрешить приложению \"Оргхим\" определять Вашу геопозицию</string>
+    <string name="dialog_title_request_camera">Приложение \"Оргхим\" запрашивает доступ к Камере</string>
+    <string name="dialog_message_request_camera">В приложении доступен функционал прикрепления мгновенного фото и видео в момент создания заявки. Предоставьте доступ к камере для прикрепления фотографий и видео, сделанных в приложении</string>
+    <string name="dialog_title_request_camera_never_ask">Предоставьте приложению \"Оргхим\" доступ к Камере в настройках</string>
+    <string name="dialog_message_request_camera_never_ask">Для добавления медиа необходимо предоставить приложению \"Оргхим\" доступ к камере в настройках системы</string>
+    <string name="dialog_title_request_gallery">Приложение \"Оргхим\" запрашивает доступ к Галерее</string>
+    <string name="dialog_message_request_gallery">Для добавления медиа разрешите приложению \"Оргхим\" использовать материалы из галереи</string>
+    <string name="dialog_title_request_gallery_never_ask">Предоставьте приложению \"Оргхим\" доступ к Галерее в настройках</string>
+    <string name="dialog_message_request_gallery_never_ask">Для добавления медиа предоставьте приложению \"Оргхим\" доступ к галерее в настройках системы</string>
+    <string name="dialog_title_exit">Вы действительно хотите выйти?</string>
+    <string name="dialog_title_request_send_notification">Приложение \"Оргхим\" запрашивает доступ для отправки Push-уведомлений</string>
+    <string name="dialog_message_request_send_notification">Приложение будет отправлять Push-уведомления о важных событиях в приложении</string>
+    <string name="dialog_message_size_image_too_much">Размер прикрепляемого изображения превышает 10 МБ</string>
+    <string name="dialog_message_limit_count_files">Максимальное количество прикрепляемых медиа-файлов равно 5</string>
+    <string name="dialog_message_size_video_too_much">Размер прикрепляемого видео превышает 50 МБ</string>
+    <string name="dialog_title_file_sending">Отправка файлов…</string>
+
+    <string name="tab_home">Главная</string>
+    <string name="tab_comparison">Сравнения</string>
+    <string name="tab_favorites">Избранное</string>
+
+    <string name="toolbar_title_requests">Заявки</string>
+    <string name="toolbar_title_new_request">Новая заявка</string>
+    <string name="toolbar_title_profile">Профиль</string>
+    <string name="toolbar_title_notifications">Уведомления</string>
+    <string name="toolbar_title_filter">Фильтр</string>
+    <string name="toolbar_title_language">Язык</string>
+    <string name="toolbar_title_news">Новости</string>
+    <string name="toolbar_title_map">Карта</string>
+
+    <string-array name="spinner_type_critical">
+        <item>Низкая</item>
+        <item>Обычная</item>
+        <item>Высокая</item>
+    </string-array>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_name_channel">Общие уведомления</string>
+
+    <string name="label_wait_loading">Пожалуйста, подождите идет, загрузка данных…</string>
+    <string name="label_all_adverts">Все объявления</string>
+    <string name="btn_call">Позвонить</string>
+    <string name="btn_add_comparison">Добавить в сравнение</string>
+    <string name="label_address">Адрес</string>
+    <string name="label_advert_type">Тип:</string>
+    <string name="label_advert_date">Дата размещения</string>
+    <string name="label_advert_count_room">Количество комнат:</string>
+    <string name="label_advert_count_floor">Количество этажей в доме:</string>
+    <string name="label_advert_floor_flat">Этаж квартиры:</string>
+    <string name="label_advert_square_home">Площадь помещения:</string>
+    <string name="label_advert_square_plot">Площадь участка:</string>
+    <string name="label_advert_type_housing">Тип жилья:</string>
+    <string name="label_advert_lift">Лифт:</string>
+    <string name="label_advert_repair">Ремонт:</string>
+    <string name="label_advert_distance_from_center">Расстояние до центра:</string>
+    <string name="label_advert_year_of_construction">Год постройки:</string>
+    <string name="title_favorites">Избранное</string>
+
+</resources>

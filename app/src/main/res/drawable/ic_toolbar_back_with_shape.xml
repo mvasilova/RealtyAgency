@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="30dp"
+        android:height="30dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/colorToolbarShape" />
+
+        </shape>
+    </item>
+
+    <item
+        android:width="24dp"
+        android:height="25dp"
+        android:drawable="@drawable/ic_toolbar_back_white"
+        android:gravity="center" />
+</layer-list>

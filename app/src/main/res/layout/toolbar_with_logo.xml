@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    app:contentInsetStart="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Text.Bold.White.16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/default_margin_10"
+            android:drawableTop="@drawable/ic_realty_home"
+            android:drawablePadding="@dimen/default_margin_16"
+            android:drawableTint="@color/colorWhiteLightTransparent"
+            android:gravity="center"
+            android:padding="@dimen/default_margin_10"
+            android:text="@string/app_name_full" />
+
+        <TextView
+            style="@style/Text.WhiteLightTransparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/realty_address" />
+
+        <TextView
+            style="@style/Text.WhiteLightTransparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/default_margin_4"
+            android:text="@string/realty_phones"
+            android:textIsSelectable="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorWhiteTransparent" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

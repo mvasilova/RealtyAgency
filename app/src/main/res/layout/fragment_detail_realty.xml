@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/collapsing_toolbar_height"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpRealtyImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" />
+
+                <com.rd.PageIndicatorView2
+                    android:id="@+id/pivImages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_margin="@dimen/default_margin_16"
+                    app:piv_animationType="scale"
+                    app:piv_dynamicCount="true"
+                    app:piv_interactiveAnimation="true"
+                    app:piv_padding="@dimen/piv_news_padding"
+                    app:piv_radius="@dimen/piv_news_radius"
+                    app:piv_selectedColor="@color/colorWhite"
+                    app:piv_unselectedColor="@color/colorWhite" />
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarRealty"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_toolbar_back_white"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivFavorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|top"
+                        android:layout_marginEnd="@dimen/default_margin_16"
+                        android:src="@drawable/ic_favorite_border"
+                        tools:ignore="ContentDescription" />
+
+                </FrameLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/map_view_height"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height_1"
+                    android:layout_marginTop="@dimen/default_margin_16"
+                    android:layout_marginBottom="@dimen/default_margin_16"
+                    android:background="@color/colorLightView" />
+
+                <TextView
+                    style="@style/Text.Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="@dimen/default_margin_16"
+                    android:layout_marginEnd="@dimen/default_margin_16"
+                    android:drawableStart="@drawable/ic_request_place_map"
+                    android:drawablePadding="@dimen/default_margin_4"
+                    android:text="@string/label_location" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_16"
+                    android:layout_marginTop="@dimen/default_margin_4"
+                    android:layout_marginEnd="@dimen/default_margin_16"
+                    tools:text="Рябов Евгений Анатолиевич" />
+
+                <fragment
+                    android:id="@+id/mapView"
+                    android:name="com.realtyagency.tm.presentation.common.ScrollMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/default_margin_16"
+                    android:layout_weight="1"
+                    tools:ignore="FragmentTagUsage">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center"
+                        android:layout_margin="@dimen/default_margin_16"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/btnZoomIn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="@dimen/default_margin_8"
+                            android:background="@color/colorPrimary"
+                            android:src="@drawable/ic_request_zoom_in"
+                            android:theme="@style/PrimaryActionButton"
+                            app:backgroundTint="@color/colorWhite"
+                            app:borderWidth="0dp"
+                            app:elevation="@dimen/fab_elevation_small"
+                            app:fabCustomSize="@dimen/fab_custom_size"
+                            app:fabSize="normal"
+                            app:tint="@null" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/btnZoomOut"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|bottom"
+                            android:src="@drawable/ic_request_zoom_out"
+                            android:theme="@style/PrimaryActionButton"
+                            app:backgroundTint="@color/colorWhite"
+                            app:borderWidth="0dp"
+                            app:elevation="@dimen/fab_elevation_small"
+                            app:fabCustomSize="@dimen/fab_custom_size"
+                            app:fabSize="normal"
+                            app:tint="@null" />
+                    </LinearLayout>
+
+                </fragment>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include layout="@layout/layout_progress" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,176 @@
+apply plugin: "com.android.application"
+
+apply plugin: "kotlin-android"
+
+apply plugin: "kotlin-kapt"
+
+apply plugin: "kotlin-android-extensions"
+
+apply plugin: "com.google.gms.google-services"
+
+apply plugin: "com.google.firebase.crashlytics"
+
+
+def API_ENDPOINT = "API_ENDPOINT"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.realtyagency.tm"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation": "$projectDir/schemas".toString(),
+                        "room.incremental"   : "true"]
+            }
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+
+        androidExtensions {
+            experimental = true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", API_ENDPOINT, '"https://realtyagency-feffa.firebaseio.com/"'
+        }
+        debug {
+            debuggable true
+            buildConfigField "String", API_ENDPOINT, '"https://realtyagency-feffa.firebaseio.com/"'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.core:core-ktx:1.3.0-alpha01"
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation 'com.google.firebase:firebase-functions:19.0.2'
+    testImplementation "junit:junit:4.12"
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
+    androidTestImplementation "androidx.test:runner:1.2.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
+
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.vectordrawable:vectordrawable:1.1.0"
+    implementation "com.google.android.material:material:1.2.0-alpha05"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.fragment:fragment-ktx:1.2.2"
+    implementation "com.google.android.gms:play-services-location:17.0.0"
+
+    //Navigation
+    implementation "com.ncapdevi:frag-nav:3.2.0"
+    implementation "com.aurelhubert:ahbottomnavigation:2.3.4"
+
+    //Kotlin
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.61"
+
+    //Koin
+    implementation "org.koin:koin-androidx-scope:2.0.1"
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+
+    //LiveDataExtensions
+    implementation 'com.snakydesign.livedataextensions:lives:1.3.0'
+
+    //Room
+    implementation "androidx.room:room-runtime:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
+    implementation "androidx.room:room-ktx:2.2.5"
+
+    //Firebase
+    implementation "com.google.firebase:firebase-analytics:17.4.0"
+    implementation "com.google.firebase:firebase-messaging:20.1.6"
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
+    implementation "com.google.firebase:firebase-database-ktx:19.3.0"
+
+    //Networking
+    implementation "com.squareup.retrofit2:retrofit:2.7.2"
+    implementation "com.squareup.retrofit2:converter-gson:2.6.2"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.12.1"
+    implementation "com.facebook.stetho:stetho-okhttp3:1.5.1"
+
+    //RecyclerViewDelegates
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0"
+    implementation "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:4.3.0"
+
+    //PermissionsDispatcher
+    implementation "org.permissionsdispatcher:permissionsdispatcher:4.5.0"
+    kapt "org.permissionsdispatcher:permissionsdispatcher-processor:4.5.0"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:4.10.0"
+    kapt "com.github.bumptech.glide:compiler:4.10.0"
+
+    //GlideTransformations
+    implementation "jp.wasabeef:glide-transformations:4.1.0"
+
+    //PageIndicatorView
+    implementation "com.github.adrielcafe:PageIndicatorView:1.0.6"
+
+    //Keyboard Listener
+    implementation "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.3.0"
+
+    //SetStyle
+    implementation 'com.airbnb.android:paris:1.3.1'
+    kapt 'com.airbnb.android:paris-processor:1.3.1'
+
+    //Maps
+    implementation "com.google.android.gms:play-services-maps:17.0.0"
+
+    //RecyclerViewMargin
+    implementation("com.github.thekhaeng:recycler-margin:1.2.1") {
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+
+    //ViewPager2
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    //SharedPreferences
+    implementation "androidx.security:security-crypto:1.0.0-alpha02"
+    implementation "androidx.preference:preference-ktx:1.1.0"
+
+    //EventBus
+    implementation "org.greenrobot:eventbus:3.1.1"
+
+    //Matisse&Camera
+    implementation "com.zhihu.android:matisse:0.5.3-beta3"
+    implementation "com.github.jkwiecien:EasyImage:3.0.3"
+
+    //ExoPlayer
+    implementation "com.google.android.exoplayer:exoplayer:2.11.3"
+    implementation "com.google.android.exoplayer:exoplayer-core:2.11.3"
+
+    //PhotoView
+    implementation "com.github.chrisbanes:PhotoView:2.3.0"
+
+    //ShortcutBadger
+    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
+
+}
