@@ -1,9 +1,6 @@
 package com.realtyagency.tm.app.platform
 
-import android.content.Context
-import android.content.res.Configuration
 import android.graphics.Rect
-import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -100,12 +97,16 @@ abstract class BaseActivity(@LayoutRes val layoutResId: Int) : AppCompatActivity
 
     open fun handleFailure(failure: Failure?) {
         when (failure) {
-            is Failure.ServerError -> if (dialogNotAlreadyShown(DIALOG_FULL_SCREEN_TAG)) FullScreenDialog.newInstance(R.layout.dialog_server_error, R.string.label_server_error, R.string.label_server_error_description).show(supportFragmentManager, DIALOG_FULL_SCREEN_TAG)
-            is Failure.AuthError -> notify(R.string.label_auth_error, R.string.label_auth_error_description)
-            is Failure.CommonError -> if (dialogNotAlreadyShown(DIALOG_FULL_SCREEN_TAG)) FullScreenDialog.newInstance(R.layout.dialog_server_error, R.string.label_common_error, R.string.label_common_error_description).show(supportFragmentManager, DIALOG_FULL_SCREEN_TAG)
-            is Failure.UnacceptableFormatError -> notify(R.string.label_unacceptable_format_error, R.string.label_unacceptable_format_error_description)
-            is Failure.UploadingError -> notify( R.string.label_uploading_error, R.string.label_uploading_error_description)
-            is Failure.NetworkConnection -> if (dialogNotAlreadyShown(DIALOG_FULL_SCREEN_TAG)) FullScreenDialog.newInstance(R.layout.fragment_connection_error).show(supportFragmentManager, DIALOG_FULL_SCREEN_TAG)
+            is Failure.ServerError -> if (dialogNotAlreadyShown(DIALOG_FULL_SCREEN_TAG)) FullScreenDialog.newInstance(
+                R.layout.dialog_server_error,
+                R.string.label_server_error,
+                R.string.label_server_error_description
+            ).show(supportFragmentManager, DIALOG_FULL_SCREEN_TAG)
+            is Failure.CommonError -> if (dialogNotAlreadyShown(DIALOG_FULL_SCREEN_TAG)) FullScreenDialog.newInstance(
+                R.layout.dialog_server_error,
+                R.string.label_common_error,
+                R.string.label_common_error_description
+            ).show(supportFragmentManager, DIALOG_FULL_SCREEN_TAG)
         }
     }
 

@@ -128,7 +128,7 @@
     </style>
 
     <style name="Button" parent="Widget.AppCompat.Button">
-        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_height">@dimen/button_height_36</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@drawable/bg_button_login</item>
         <item name="android:textSize">@dimen/font_14</item>
@@ -137,7 +137,7 @@
 
     <style name="MaterialButton" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_height">@dimen/button_height_55</item>
         <item name="android:padding">10dp</item>
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="backgroundTint">@color/colorWhite</item>

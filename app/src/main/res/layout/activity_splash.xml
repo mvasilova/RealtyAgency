@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/default_margin_8"
-        android:drawableTop="@drawable/ic_realty_home"
+        android:drawableTop="@drawable/ic_realty_home_big"
         android:drawableTint="@color/colorWhiteLightTransparent"
         android:padding="@dimen/default_margin_8"
         android:text="@string/app_name" />

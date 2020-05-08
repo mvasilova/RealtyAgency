@@ -20,25 +20,12 @@ class ErrorHandler(
 
             exception is HttpException -> {
                 try {
-                    val error = gson.fromJson(exception.response()?.errorBody()?.string(), ErrorResponse::class.java)
+                    val error = gson.fromJson(
+                        exception.response()?.errorBody()?.string(),
+                        ErrorResponse::class.java
+                    )
                     return when (error.error) {
-                        "AuthFailed" -> AuthError
-                        "RequestUnacceptableFormat" -> UnacceptableFormatError
-                        "RequestUploadingError" -> UploadingError
-                        "AuthInvalidBody" -> CommonError
-                        "AuthRequired" -> CommonError
-                        "AuthInvalidToken" -> CommonError
-                        "NewsNotFound" -> CommonError
-                        "NewsRouteNotFound" -> CommonError
-                        "RequestInvalidType" -> CommonError
-                        "RequestInvalidBody" -> CommonError
-                        "RequestInvalidCriticality" -> CommonError
-                        "RequestNotFound" -> CommonError
-                        "RequestNotFoundForUser" -> CommonError
-                        "RequestRouteNotFound" -> CommonError
-                        "NotificationNotFound" -> CommonError
-                        "NotificationNotFoundForUser" -> CommonError
-                        "UnknownError" -> CommonError
+                        "UnknownError" -> UnknownError
                         else -> CommonError
                     }
                 } catch (e: Exception) {
