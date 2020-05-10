@@ -13,7 +13,7 @@ fun bottomDialogDelegate(clickListener: (ItemDialog) -> Unit) =
         }
 
         bind {
-            containerView.tvDialogTitle.text = getString(item.title)
+            containerView.tvDialogTitle.text = item.title
             containerView.tvDialogTitle.setCompoundDrawablesWithIntrinsicBounds(
                 context.getDrawable(
                     item.drawable
@@ -23,6 +23,7 @@ fun bottomDialogDelegate(clickListener: (ItemDialog) -> Unit) =
     }
 
 data class ItemDialog(
+    val id: Int,
     val drawable: Int,
-    val title: Int
+    val title: String
 ) : Serializable

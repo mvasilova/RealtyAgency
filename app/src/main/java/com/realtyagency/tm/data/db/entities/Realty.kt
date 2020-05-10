@@ -1,13 +1,14 @@
 package com.realtyagency.tm.data.db.entities
 
-import androidx.room.*
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.realtyagency.tm.app.platform.DiffItem
-import com.realtyagency.tm.data.db.converters.RealtyPhotosConverter
 import java.io.Serializable
 
 @Entity(tableName = "realty")
-@TypeConverters(RealtyPhotosConverter::class)
 data class Realty(
     @PrimaryKey
     @SerializedName("id")

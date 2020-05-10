@@ -35,7 +35,7 @@
     <string name="label_news_title">Новости</string>
     <string name="label_last_requests_title">Последние заявки</string>
     <string name="label_responsible">Ответственный</string>
-    <string name="label_new_request">Новая заявка</string>
+    <string name="label_new_comparison">Новое сравнение</string>
     <string name="label_edit_request">Продолжить заполнение</string>
     <string name="label_location">Местоположение</string>
     <string name="label_gallery">Галерея</string>
@@ -78,6 +78,7 @@
     <string name="placeholder_sq_metres">%1$s м2</string>
     <string name="placeholder_acres">%1$s сот.</string>
     <string name="placeholder_kilometres">%1$s км</string>
+    <string name="placeholder_comparison_name">Сравнение №%1$d</string>
 
     <string name="dialog_title_request_location">Приложение \"Оргхим\" запрашивает доступ к Вашей геопозиции</string>
     <string name="dialog_message_request_location">Ваша текущая геопозиция будет отображена на карте и использована для предоставления геометки при создании заявки</string>
@@ -139,5 +140,6 @@
     <string name="label_advert_distance_from_center">Расстояние до центра:</string>
     <string name="label_advert_year_of_construction">Год постройки:</string>
     <string name="title_favorites">Избранное</string>
+    <string name="title_comparisons">Сравнения</string>
 
 </resources>

@@ -11,10 +11,8 @@ import com.realtyagency.tm.app.platform.BaseFragment
 import com.realtyagency.tm.app.platform.DIFF_CALLBACK
 import com.realtyagency.tm.app.utils.FilterRequestEvent
 import com.realtyagency.tm.data.db.entities.Realty
-import com.realtyagency.tm.presentation.common.CommonBottomDialogFragment
-import com.realtyagency.tm.presentation.common.ItemDialog
 import com.realtyagency.tm.presentation.delegates.realtyDelegate
-import kotlinx.android.synthetic.main.fragment_requests.*
+import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.toolbar_with_icon.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -23,8 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 
-class RealtyListFragment : BaseFragment(R.layout.fragment_requests),
-    CommonBottomDialogFragment.BottomSheetDialogListener {
+class RealtyListFragment : BaseFragment(R.layout.fragment_list) {
 
     override val toolbarTitle: Any?
         get() = arguments?.get(CATEGORY_TITLE)
@@ -83,34 +80,9 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_requests),
         realtyAdapter.items = list
     }
 
-
-//    private fun showBottomSheetDialog() {
-//        val list = mutableListOf<ItemDialog>().apply {
-//            add(ItemDialog(R.drawable.ic_request_new, R.string.label_new_request))
-//            if (showDraft) add(ItemDialog(R.drawable.ic_request_edit, R.string.label_edit_request))
-//        }
-//
-//        val dialog = CommonBottomDialogFragment.newInstance(list)
-//
-//        dialog.setTargetFragment(this, 0)
-//        dialog.show(supportFragmentManager, TAG_REQUEST_DIALOG)
-//    }
-
-    override fun onItemDialogClick(itemDialog: ItemDialog) {
-        when (itemDialog.title) {
-            R.string.label_new_request -> {
-                //viewModel.navigateToNewRequest(false)
-            }
-
-            R.string.label_edit_request -> {
-                // viewModel.navigateToNewRequest(true)
-            }
-        }
-    }
-
     private fun setupAdverts() {
-        rvRequestsList.layoutManager = GridLayoutManager(context, 2)
-        (rvRequestsList.layoutManager as? GridLayoutManager)?.spanSizeLookup =
+        rvList.layoutManager = GridLayoutManager(context, 2)
+        (rvList.layoutManager as? GridLayoutManager)?.spanSizeLookup =
             object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
                     return if ((realtyAdapter.items[position] as? Realty)?.premium == true) {
@@ -120,12 +92,12 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_requests),
                     }
                 }
             }
-        rvRequestsList.adapter = realtyAdapter
+        rvList.adapter = realtyAdapter
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     fun onFilterRequestEvent(event: FilterRequestEvent) {
-        rvRequestsList.scrollToPosition(0)
+        rvList.scrollToPosition(0)
         screenViewModel.applyFilters(event.data)
 
         val stickyEvent = EventBus.getDefault().getStickyEvent(FilterRequestEvent::class.java)
@@ -135,7 +107,6 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_requests),
     }
 
     companion object {
-        const val TAG_REQUEST_DIALOG = "RequestDialog"
         private const val CATEGORY_TITLE: String = "CategoryTitle"
         fun newInstance(category: String): RealtyListFragment =
             RealtyListFragment().apply {

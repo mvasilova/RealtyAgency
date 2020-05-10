@@ -21,7 +21,7 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/default_margin_10"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_news" />
+            tools:listitem="@layout/item_comparison" />
 
     </LinearLayout>
 

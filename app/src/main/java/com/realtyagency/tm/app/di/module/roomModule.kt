@@ -9,6 +9,7 @@ val roomModule = module {
     single { provideDatabase(get()) }
     single { getRealtyDao(get()) }
     single { getFavoriteDao(get()) }
+    single { getComparisonDao(get()) }
 }
 
 fun provideDatabase(context: Context) = RealtyAgencyDatabase.buildDataSource(context)
@@ -16,4 +17,7 @@ fun provideDatabase(context: Context) = RealtyAgencyDatabase.buildDataSource(con
 fun getRealtyDao(realtyAgencyDatabase: RealtyAgencyDatabase) = realtyAgencyDatabase.realtyDao()
 
 fun getFavoriteDao(realtyAgencyDatabase: RealtyAgencyDatabase) = realtyAgencyDatabase.favoriteDao()
+
+fun getComparisonDao(realtyAgencyDatabase: RealtyAgencyDatabase) =
+    realtyAgencyDatabase.comparisonDao()
 

@@ -17,6 +17,9 @@ import com.realtyagency.tm.R
 import com.realtyagency.tm.app.extensions.*
 import com.realtyagency.tm.app.platform.BaseFragment
 import com.realtyagency.tm.data.db.entities.Realty
+import com.realtyagency.tm.presentation.common.CommonBottomDialogFragment
+import com.realtyagency.tm.presentation.common.CommonBottomDialogFragment.BottomSheetDialogListener
+import com.realtyagency.tm.presentation.common.ItemDialog
 import com.realtyagency.tm.presentation.common.ScrollMapFragment
 import com.realtyagency.tm.presentation.delegates.featuresContentRealtyDelegate
 import com.realtyagency.tm.presentation.delegates.mainContentRealtyDelegate
@@ -26,7 +29,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
 
-class DetailRealtyFragment : BaseFragment(R.layout.fragment_detail_realty) {
+class DetailRealtyFragment : BaseFragment(R.layout.fragment_detail_realty),
+    BottomSheetDialogListener {
 
     override val statusBarColor: Int
         get() = R.color.colorTransparent
@@ -60,7 +64,7 @@ class DetailRealtyFragment : BaseFragment(R.layout.fragment_detail_realty) {
                     requireContext().goToPhoneDial()
                 },
                 {
-                    //TODO
+                    checkListComparison()
                 }),
             featuresContentRealtyDelegate()
         )
@@ -70,6 +74,7 @@ class DetailRealtyFragment : BaseFragment(R.layout.fragment_detail_realty) {
         super.onViewCreated(view, savedInstanceState)
 
         observe(screenViewModel.isFavorite, ::handleRealtyFavorite)
+        observe(screenViewModel.comparisons, {})
 
         setupMap(savedInstanceState)
         setupContent()
@@ -206,7 +211,52 @@ class DetailRealtyFragment : BaseFragment(R.layout.fragment_detail_realty) {
         )
     }
 
+    private fun checkListComparison() {
+        val comparisons = screenViewModel.getComparisons()
+        if (comparisons.isNullOrEmpty()) {
+            screenViewModel.insertNewComparison()
+        } else {
+            val list = mutableListOf<ItemDialog>()
+            list.add(
+                ItemDialog(
+                    0,
+                    R.drawable.ic_request_new,
+                    getString(R.string.label_new_comparison)
+                )
+            )
+            comparisons.forEach {
+                list.add(
+                    ItemDialog(
+                        it.idComparison, R.drawable.ic_request_edit,
+                        getString(R.string.placeholder_comparison_name, it.idComparison)
+                    )
+                )
+            }
+
+            showBottomSheetDialog(list)
+        }
+    }
+
+    private fun showBottomSheetDialog(list: List<ItemDialog>) {
+        val dialog = CommonBottomDialogFragment.newInstance(list)
+
+        dialog.setTargetFragment(this, 0)
+        dialog.show(supportFragmentManager, TAG_BOTTOM_SHEET_DIALOG)
+    }
+
+    override fun onItemDialogClick(itemDialog: ItemDialog) {
+        when (itemDialog.id) {
+            0 -> {
+                screenViewModel.insertNewComparison()
+            }
+            else -> {
+                screenViewModel.addRealtyToListComparison(itemDialog.id)
+            }
+        }
+    }
+
     companion object {
+        const val TAG_BOTTOM_SHEET_DIALOG = "BottomDialog"
         private const val DETAIL_REALTY: String = "DetailRealty"
         fun newInstance(realty: Realty) =
             DetailRealtyFragment().apply {

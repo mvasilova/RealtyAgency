@@ -10,7 +10,7 @@ import java.text.NumberFormat
 
 fun mainContentRealtyDelegate(
     clickListenerOnCall: (Int) -> Unit,
-    clickListenerOnAddComparison: (Realty) -> Unit
+    clickListenerOnAddComparison: () -> Unit
 ) =
     adapterDelegateLayoutContainer<Realty, Any>(R.layout.item_realty_detail) {
 
@@ -19,7 +19,7 @@ fun mainContentRealtyDelegate(
         }
 
         btnAddComparison.setOnClickListener {
-            clickListenerOnAddComparison.invoke(item)
+            clickListenerOnAddComparison.invoke()
         }
 
         val format = NumberFormat.getCurrencyInstance()

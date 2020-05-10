@@ -10,10 +10,10 @@ import com.realtyagency.tm.app.platform.BaseFragment
 import com.realtyagency.tm.app.platform.DIFF_CALLBACK
 import com.realtyagency.tm.data.db.entities.Realty
 import com.realtyagency.tm.presentation.delegates.realtyDelegate
-import kotlinx.android.synthetic.main.fragment_requests.*
+import kotlinx.android.synthetic.main.fragment_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FavoritesFragment : BaseFragment(R.layout.fragment_requests) {
+class FavoritesFragment : BaseFragment(R.layout.fragment_list) {
 
     override val toolbarTitle: Any?
         get() = getString(R.string.title_favorites)
@@ -49,8 +49,8 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_requests) {
     }
 
     private fun setupAdverts() {
-        rvRequestsList.layoutManager = GridLayoutManager(context, 2)
-        (rvRequestsList.layoutManager as? GridLayoutManager)?.spanSizeLookup =
+        rvList.layoutManager = GridLayoutManager(context, 2)
+        (rvList.layoutManager as? GridLayoutManager)?.spanSizeLookup =
             object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
                     return if ((realtyAdapter.items[position] as? Realty)?.premium == true) {
@@ -60,6 +60,6 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_requests) {
                     }
                 }
             }
-        rvRequestsList.adapter = realtyAdapter
+        rvList.adapter = realtyAdapter
     }
 }

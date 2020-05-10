@@ -3,7 +3,6 @@ package com.realtyagency.tm.presentation.main
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ncapdevi.fragnav.FragNavController
 import com.ncapdevi.fragnav.FragNavController.Companion.TAB1
@@ -19,6 +18,7 @@ import com.realtyagency.tm.app.extensions.show
 import com.realtyagency.tm.app.platform.BaseActivity
 import com.realtyagency.tm.app.platform.BaseFragment
 import com.realtyagency.tm.app.platform.FragmentNavigation
+import com.realtyagency.tm.presentation.comparison.ComparisonsFragment
 import com.realtyagency.tm.presentation.favorite.FavoritesFragment
 import com.realtyagency.tm.presentation.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity(R.layout.activity_main), FragNavController.Roo
 
     private val tabs = arrayListOf(
         R.id.tab_home to HomeFragment(),
-        R.id.tab_comparison to Fragment(),
+        R.id.tab_comparison to ComparisonsFragment(),
         R.id.tab_favorites to FavoritesFragment()
     )
 
