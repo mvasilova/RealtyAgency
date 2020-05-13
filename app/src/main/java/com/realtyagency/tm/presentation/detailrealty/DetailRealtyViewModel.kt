@@ -1,11 +1,13 @@
 package com.realtyagency.tm.presentation.detailrealty
 
+import androidx.lifecycle.MutableLiveData
 import com.realtyagency.tm.app.platform.BaseViewModel
 import com.realtyagency.tm.app.platform.NavigationEvent
 import com.realtyagency.tm.data.db.entities.Comparison
 import com.realtyagency.tm.data.db.entities.Realty
 import com.realtyagency.tm.domain.repository.ComparisonRepository
 import com.realtyagency.tm.domain.repository.FavoriteRepository
+import com.realtyagency.tm.presentation.detailcomparison.DetailComparisonFragment
 import com.realtyagency.tm.presentation.viewmedia.ViewMediaFilesFragment
 
 class DetailRealtyViewModel(
@@ -16,6 +18,7 @@ class DetailRealtyViewModel(
 
     val comparisons = comparisonRepository.getAllComparisons()
     val isFavorite = favoriteRepository.observeRealtyFavorite(realty.id)
+    val comparisonId = MutableLiveData<Int>()
 
     fun changeFavorite() {
         launch {
@@ -27,7 +30,7 @@ class DetailRealtyViewModel(
         launch {
             comparisonRepository.insertComparison(
                 Comparison(date = System.currentTimeMillis(), realty = listOf(realty)),
-                {},
+                ::handleAddingComparison,
                 ::handleError
             )
         }
@@ -35,8 +38,20 @@ class DetailRealtyViewModel(
 
     fun addRealtyToListComparison(comparisonId: Int) {
         launch {
-            comparisonRepository.addItemRealtyToList(comparisonId, realty, {}, ::handleError)
+            comparisonRepository.addItemRealtyToList(
+                comparisonId, realty,
+                ::handleAddingComparison,
+                ::handleError
+            )
         }
+    }
+
+    private fun handleAddingComparison(comparisonId: Int) {
+        this.comparisonId.value = comparisonId
+    }
+
+    private fun handleAddingComparison(comparisonId: Long) {
+        this.comparisonId.value = comparisonId.toInt()
     }
 
     fun getComparisons() = comparisons.value
@@ -50,6 +65,11 @@ class DetailRealtyViewModel(
                 )
             )
         )
+    }
+
+    fun navigateToDetailComparison(comparisonId: Int) {
+        navigate(NavigationEvent.SwitchTab(1))
+        navigate(NavigationEvent.PushFragment(DetailComparisonFragment.newInstance(comparisonId)))
     }
 
     fun onExit() {

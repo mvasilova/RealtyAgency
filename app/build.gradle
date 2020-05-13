@@ -173,4 +173,7 @@ dependencies {
     //ShortcutBadger
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
 
+    //TableView
+    implementation "com.evrencoskun.library:tableview:0.8.9.2"
+
 }

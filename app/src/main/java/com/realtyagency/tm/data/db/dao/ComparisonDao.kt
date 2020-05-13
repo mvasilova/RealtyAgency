@@ -11,10 +11,13 @@ interface ComparisonDao {
     fun getAll(): LiveData<List<Comparison>>
 
     @Query("SELECT * FROM comparison WHERE idComparison=:comparisonId")
+    fun getObservableComparisonById(comparisonId: Int): LiveData<Comparison>
+
+    @Query("SELECT * FROM comparison WHERE idComparison=:comparisonId")
     fun getComparisonById(comparisonId: Int): Comparison
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertComparison(comparison: Comparison)
+    fun insertComparison(comparison: Comparison): Long
 
     @Query("DELETE FROM comparison WHERE idComparison = :comparisonId")
     fun deleteComparison(comparisonId: Int)
@@ -26,9 +29,17 @@ interface ComparisonDao {
     fun getCountComparisons(): Int
 
     @Transaction
-    fun addItemRealtyToList(comparisonId: Int, item: Realty) {
+    fun addItemRealtyToList(comparisonId: Int, item: Realty): Int {
         val list = getComparisonById(comparisonId).realty.toMutableList()
         list.add(item)
+        updateRealtyOnList(comparisonId, list)
+        return comparisonId
+    }
+
+    @Transaction
+    fun removeItemRealtyToList(comparisonId: Int, item: Realty) {
+        val list = getComparisonById(comparisonId).realty.toMutableList()
+        list.remove(item)
         updateRealtyOnList(comparisonId, list)
     }
 

@@ -7,6 +7,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.airbnb.paris.extensions.style
@@ -148,7 +149,36 @@ abstract class BaseFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentL
         }
     }
 
-    internal fun notify(@StringRes title: Int, @StringRes message: Int) {
+    internal fun notifySnack(
+        @StringRes message: Int,
+        length: Int = Snackbar.LENGTH_SHORT,
+        action: Action? = null
+    ) {
+        val stringMessage = getString(message)
+        notifySnack(stringMessage, length, action)
+    }
+
+    internal fun notifySnack(
+        message: String,
+        length: Int = Snackbar.LENGTH_SHORT,
+        action: Action? = null
+    ) {
+        view?.let {
+            snackBar?.dismiss()
+            snackBar = Snackbar.make(it, message, length)
+
+            if (action != null) {
+                snackBar?.setAction(action.text) { action.func.invoke() }
+                snackBar?.setActionTextColor(
+                    ContextCompat.getColor(requireContext(), R.color.colorAccent)
+                )
+            }
+
+            snackBar?.show()
+        }
+    }
+
+    internal fun notifyDialog(@StringRes title: Int, @StringRes message: Int) {
         if (dialogNotAlreadyShown(CommonDialog.TAG)) {
             CommonDialog.Builder()
                 .cancelVisible(false)

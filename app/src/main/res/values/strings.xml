@@ -14,6 +14,7 @@
     <string name="btn_settings">Настройки</string>
     <string name="btn_exit">Выйти</string>
     <string name="btn_repeat">Повторить</string>
+    <string name="btn_show">Посмотреть</string>
 
     <string name="content_logo">Логотип ПНК</string>
     <string name="content_image_news">Изображение новости</string>
@@ -99,6 +100,8 @@
     <string name="dialog_message_limit_count_files">Максимальное количество прикрепляемых медиа-файлов равно 5</string>
     <string name="dialog_message_size_video_too_much">Размер прикрепляемого видео превышает 50 МБ</string>
     <string name="dialog_title_file_sending">Отправка файлов…</string>
+
+    <string name="dialog_realty_added_successful">Добавлено в сравнение</string>
 
     <string name="tab_home">Главная</string>
     <string name="tab_comparison">Сравнения</string>

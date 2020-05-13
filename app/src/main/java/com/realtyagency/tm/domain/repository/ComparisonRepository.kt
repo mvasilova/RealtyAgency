@@ -9,9 +9,11 @@ interface ComparisonRepository {
 
     fun getAllComparisons(): LiveData<List<Comparison>>
 
+    fun getComparison(comparisonId: Int): LiveData<Comparison>
+
     suspend fun insertComparison(
         comparison: Comparison,
-        onSuccess: (Unit) -> Unit,
+        onSuccess: (Long) -> Unit,
         onState: (State) -> Unit
     )
 
@@ -22,6 +24,13 @@ interface ComparisonRepository {
     )
 
     suspend fun addItemRealtyToList(
+        comparisonId: Int,
+        item: Realty,
+        onSuccess: (Int) -> Unit,
+        onState: (State) -> Unit
+    )
+
+    suspend fun removeItemRealtyToList(
         comparisonId: Int,
         item: Realty,
         onSuccess: (Unit) -> Unit,

@@ -4,6 +4,7 @@ import com.realtyagency.tm.data.db.entities.Realty
 import com.realtyagency.tm.data.entities.FilterData
 import com.realtyagency.tm.presentation.SplashViewModel
 import com.realtyagency.tm.presentation.comparison.ComparisonsViewModel
+import com.realtyagency.tm.presentation.detailcomparison.DetailComparisonViewModel
 import com.realtyagency.tm.presentation.detailrealty.DetailRealtyViewModel
 import com.realtyagency.tm.presentation.favorite.FavoritesViewModel
 import com.realtyagency.tm.presentation.filterrequest.FilterRequestViewModel
@@ -17,6 +18,7 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { (realty: Realty) -> DetailRealtyViewModel(realty, get(), get()) }
+    viewModel { (comparisonId: Int) -> DetailComparisonViewModel(comparisonId, get()) }
     viewModel { SplashViewModel(get()) }
     viewModel { MainViewModel(get()) }
     viewModel { HomeViewModel(get()) }

@@ -16,9 +16,12 @@ class ComparisonRepositoryImp(
 
     override fun getAllComparisons() = comparisonDao.getAll()
 
+    override fun getComparison(comparisonId: Int) =
+        comparisonDao.getObservableComparisonById(comparisonId)
+
     override suspend fun insertComparison(
         comparison: Comparison,
-        onSuccess: (Unit) -> Unit,
+        onSuccess: (Long) -> Unit,
         onState: (State) -> Unit
     ) {
         execute(onSuccess = onSuccess, onState = onState) {
@@ -39,11 +42,22 @@ class ComparisonRepositoryImp(
     override suspend fun addItemRealtyToList(
         comparisonId: Int,
         item: Realty,
-        onSuccess: (Unit) -> Unit,
+        onSuccess: (Int) -> Unit,
         onState: (State) -> Unit
     ) {
         execute(onSuccess = onSuccess, onState = onState) {
             comparisonDao.addItemRealtyToList(comparisonId, item)
+        }
+    }
+
+    override suspend fun removeItemRealtyToList(
+        comparisonId: Int,
+        item: Realty,
+        onSuccess: (Unit) -> Unit,
+        onState: (State) -> Unit
+    ) {
+        execute(onSuccess = onSuccess, onState = onState) {
+            comparisonDao.removeItemRealtyToList(comparisonId, item)
         }
     }
 }

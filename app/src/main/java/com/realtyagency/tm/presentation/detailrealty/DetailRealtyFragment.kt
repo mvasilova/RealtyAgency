@@ -12,9 +12,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.snackbar.Snackbar
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.realtyagency.tm.R
 import com.realtyagency.tm.app.extensions.*
+import com.realtyagency.tm.app.platform.Action
 import com.realtyagency.tm.app.platform.BaseFragment
 import com.realtyagency.tm.data.db.entities.Realty
 import com.realtyagency.tm.presentation.common.CommonBottomDialogFragment
@@ -74,6 +76,7 @@ class DetailRealtyFragment : BaseFragment(R.layout.fragment_detail_realty),
         super.onViewCreated(view, savedInstanceState)
 
         observe(screenViewModel.isFavorite, ::handleRealtyFavorite)
+        observe(screenViewModel.comparisonId, ::handleAddingComparison)
         observe(screenViewModel.comparisons, {})
 
         setupMap(savedInstanceState)
@@ -91,6 +94,17 @@ class DetailRealtyFragment : BaseFragment(R.layout.fragment_detail_realty),
             requireContext().getCompatDrawable(R.drawable.ic_favorite_fill)
         } else {
             requireContext().getCompatDrawable(R.drawable.ic_favorite_border)
+        }
+    }
+
+    private fun handleAddingComparison(comparisonId: Int?) {
+        comparisonId?.let {
+            notifySnack(
+                R.string.dialog_realty_added_successful,
+                Snackbar.LENGTH_LONG,
+                Action(R.string.btn_show) {
+                    screenViewModel.navigateToDetailComparison(it)
+                })
         }
     }
 
