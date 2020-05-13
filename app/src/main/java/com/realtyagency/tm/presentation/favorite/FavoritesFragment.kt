@@ -7,7 +7,7 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.realtyagency.tm.R
 import com.realtyagency.tm.app.extensions.observe
 import com.realtyagency.tm.app.platform.BaseFragment
-import com.realtyagency.tm.app.platform.DIFF_CALLBACK
+import com.realtyagency.tm.app.platform.DiffCallback
 import com.realtyagency.tm.data.db.entities.Realty
 import com.realtyagency.tm.presentation.delegates.realtyDelegate
 import kotlinx.android.synthetic.main.fragment_list.*
@@ -25,7 +25,7 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_list) {
 
     private val realtyAdapter by lazy {
         AsyncListDifferDelegationAdapter(
-            DIFF_CALLBACK,
+            DiffCallback,
             realtyDelegate({
                 screenViewModel.navigateToDetailRealty(it)
             }, {

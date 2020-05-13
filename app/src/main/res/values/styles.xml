@@ -82,7 +82,7 @@
     </style>
 
     <style name="Text.Error">
-        <item name="android:textColor">@color/colorError</item>
+        <item name="android:textColor">@color/colorRed</item>
         <item name="android:textSize">@dimen/font_12</item>
     </style>
 
@@ -205,7 +205,7 @@
     </style>
 
     <style name="ErrorTextAppearance" parent="TextAppearance.Design.Error">
-        <item name="android:textColor">@color/colorError</item>
+        <item name="android:textColor">@color/colorRed</item>
     </style>
 
     <style name="HintTextAppearance" parent="TextAppearance.Design.Hint">

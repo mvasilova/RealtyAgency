@@ -10,6 +10,7 @@ import java.io.Serializable
 data class Comparison(
     @PrimaryKey(autoGenerate = true)
     val idComparison: Int = 0,
+    val date: Long? = null,
     val realty: List<Realty>
 ) : Serializable, DiffItem {
     @Ignore

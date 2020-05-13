@@ -142,4 +142,7 @@
     <string name="title_favorites">Избранное</string>
     <string name="title_comparisons">Сравнения</string>
 
+    <string name="date_pattern_dmy">dd MMM yyyy</string>
+    <string name="date_pattern_dmy_time">dd MMM yyyy HH:mm</string>
+
 </resources>

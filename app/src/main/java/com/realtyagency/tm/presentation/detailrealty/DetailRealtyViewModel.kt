@@ -26,7 +26,7 @@ class DetailRealtyViewModel(
     fun insertNewComparison() {
         launch {
             comparisonRepository.insertComparison(
-                Comparison(realty = listOf(realty)),
+                Comparison(date = System.currentTimeMillis(), realty = listOf(realty)),
                 {},
                 ::handleError
             )

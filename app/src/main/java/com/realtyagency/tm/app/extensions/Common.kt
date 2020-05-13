@@ -3,6 +3,7 @@ package com.realtyagency.tm.app.extensions
 import android.content.Context
 import android.content.res.Resources
 import com.hannesdorfmann.adapterdelegates4.AbsDelegationAdapter
+import com.realtyagency.tm.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -13,7 +14,10 @@ val Float.dpToPx: Float
     get() = (this * Resources.getSystem().displayMetrics.density)
 
 
-fun Long.toDateFormatGmt(context: Context, pattern: String = "dd MMM yyyy"): String =
+fun Long.toDateFormatGmt(
+    context: Context,
+    pattern: String = context.getString(R.string.date_pattern_dmy)
+): String =
     SimpleDateFormat(pattern, Locale.getDefault())
         .apply { timeZone = TimeZone.getTimeZone("GMT") }
         .format(this.checkUnixTimeStamp())

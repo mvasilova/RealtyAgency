@@ -2,14 +2,17 @@ package com.realtyagency.tm.presentation.comparison
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.realtyagency.tm.R
 import com.realtyagency.tm.app.extensions.dpToPx
 import com.realtyagency.tm.app.extensions.getCompatColor
 import com.realtyagency.tm.app.extensions.observe
 import com.realtyagency.tm.app.platform.BaseFragment
-import com.realtyagency.tm.app.platform.DIFF_CALLBACK
+import com.realtyagency.tm.app.platform.DiffCallback
+import com.realtyagency.tm.app.platform.SwipeToDeleteCallback
 import com.realtyagency.tm.data.db.entities.Comparison
 import com.realtyagency.tm.presentation.delegates.comparisonsDelegate
 import kotlinx.android.synthetic.main.fragment_list.*
@@ -24,7 +27,7 @@ class ComparisonsFragment : BaseFragment(R.layout.fragment_list) {
 
     private val realtyAdapter by lazy {
         AsyncListDifferDelegationAdapter(
-            DIFF_CALLBACK,
+            DiffCallback,
             comparisonsDelegate {
                 screenViewModel.navigateToDetailComparison(it)
             }
@@ -53,6 +56,17 @@ class ComparisonsFragment : BaseFragment(R.layout.fragment_list) {
                 16f.dpToPx
             )
         )
+
+        val swipeHandler = object : SwipeToDeleteCallback(requireContext()) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                screenViewModel.deleteComparison(
+                    realtyAdapter.items.getOrNull(viewHolder.layoutPosition)?.itemId?.toInt() ?: 0
+                )
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(rvList)
+
         rvList.adapter = realtyAdapter
     }
 }

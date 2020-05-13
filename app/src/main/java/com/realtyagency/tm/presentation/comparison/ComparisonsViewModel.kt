@@ -9,6 +9,12 @@ class ComparisonsViewModel(
 
     val comparisons = comparisonRepository.getAllComparisons()
 
+    fun deleteComparison(comparisonId: Int) {
+        launch {
+            comparisonRepository.deleteComparison(comparisonId, {}, ::handleError)
+        }
+    }
+
     fun navigateToDetailComparison(comparisonId: Int) {
         //navigate(NavigationEvent.PushFragment(DetailRealtyFragment.newInstance(realty)))
     }
