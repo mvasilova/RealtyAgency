@@ -1,6 +1,7 @@
 package com.realtyagency.tm.presentation.detailcomparison
 
 import com.realtyagency.tm.app.platform.BaseViewModel
+import com.realtyagency.tm.app.platform.NavigationEvent
 import com.realtyagency.tm.data.db.entities.Realty
 import com.realtyagency.tm.domain.repository.ComparisonRepository
 
@@ -15,6 +16,10 @@ class DetailComparisonViewModel(
         launch {
             if (comparisons.value?.realty?.size ?: 0 > 1) {
                 comparisonRepository.removeItemRealtyToList(comparisonId, realty, {}, ::handleError)
+            } else {
+                comparisonRepository.deleteComparison(comparisonId, {
+                    navigate(NavigationEvent.Exit)
+                }, ::handleError)
             }
         }
     }
