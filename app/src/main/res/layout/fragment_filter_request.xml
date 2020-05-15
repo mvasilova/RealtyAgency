@@ -31,7 +31,7 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/default_margin_16"
                 android:layout_marginTop="@dimen/default_margin_24"
-                android:text="@string/label_filter_date" />
+                android:text="@string/label_filter_sort" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -58,7 +58,118 @@
                     android:paddingEnd="@dimen/default_margin_16"
                     android:paddingBottom="@dimen/default_margin_4"
                     android:text="@string/label_filter_old_first" />
+
+                <RadioButton
+                    android:id="@+id/rbFilterPriceUp"
+                    style="@style/RadioButton"
+                    android:paddingStart="@dimen/default_margin_16"
+                    android:paddingTop="@dimen/default_margin_4"
+                    android:paddingEnd="@dimen/default_margin_16"
+                    android:paddingBottom="@dimen/default_margin_4"
+                    android:text="@string/label_filter_price_up" />
+
+                <RadioButton
+                    android:id="@+id/rbFilterPriceDown"
+                    style="@style/RadioButton"
+                    android:paddingStart="@dimen/default_margin_16"
+                    android:paddingTop="@dimen/default_margin_4"
+                    android:paddingEnd="@dimen/default_margin_16"
+                    android:paddingBottom="@dimen/default_margin_4"
+                    android:text="@string/label_filter_price_down" />
             </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_height_1"
+                android:layout_marginLeft="@dimen/default_margin_16"
+                android:layout_marginTop="@dimen/default_margin_8"
+                android:layout_marginRight="@dimen/default_margin_16"
+                android:background="@color/colorLightView" />
+
+            <TextView
+                android:id="@+id/tvFilterCost"
+                style="@style/Text.Hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin_16"
+                android:layout_marginTop="@dimen/default_margin_24"
+                android:layout_marginBottom="@dimen/default_margin_8"
+                android:gravity="start"
+                tools:text="@string/placeholder_filter_cost" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderRealtyCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin_16"
+                android:layout_marginEnd="@dimen/default_margin_16"
+                app:labelBehavior="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_height_1"
+                android:layout_marginLeft="@dimen/default_margin_16"
+                android:layout_marginTop="@dimen/default_margin_8"
+                android:layout_marginRight="@dimen/default_margin_16"
+                android:background="@color/colorLightView" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin_16"
+                android:layout_marginTop="@dimen/default_margin_8"
+                android:layout_marginRight="@dimen/default_margin_16"
+                android:layout_marginBottom="@dimen/default_margin_8">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSell"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_filter_sell"
+                    android:theme="@style/AppTheme.Chip" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipRent"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_filter_rent"
+                    android:theme="@style/AppTheme.Chip" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_height_1"
+                android:layout_marginLeft="@dimen/default_margin_16"
+                android:layout_marginRight="@dimen/default_margin_16"
+                android:background="@color/colorLightView" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.Hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="@dimen/default_margin_16"
+                    android:layout_marginTop="@dimen/default_margin_24"
+                    android:layout_marginBottom="@dimen/default_margin_8"
+                    android:text="@string/label_filter_type_advert" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvFilterAdvertType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_filter_type_realty" />
+
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -81,14 +192,14 @@
                     android:layout_marginStart="@dimen/default_margin_16"
                     android:layout_marginTop="@dimen/default_margin_24"
                     android:layout_marginBottom="@dimen/default_margin_8"
-                    android:text="@string/label_filter_type_request" />
+                    android:text="@string/label_filter_type_realty" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvFilterRequestType"
+                    android:id="@+id/rvFilterRealtyType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:itemCount="3"
-                    tools:listitem="@layout/item_filter_type_request" />
+                    tools:listitem="@layout/item_filter_type_realty" />
 
             </LinearLayout>
 
@@ -113,14 +224,14 @@
                     android:layout_marginStart="@dimen/default_margin_16"
                     android:layout_marginTop="@dimen/default_margin_24"
                     android:layout_marginBottom="@dimen/default_margin_8"
-                    android:text="@string/label_filter_mark_of_critical" />
+                    android:text="@string/label_filter_repair" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvFilterRequestPriority"
+                    android:id="@+id/rvFilterRealtyRepair"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:itemCount="3"
-                    tools:listitem="@layout/item_filter_type_request" />
+                    tools:listitem="@layout/item_filter_type_realty" />
 
             </LinearLayout>
 

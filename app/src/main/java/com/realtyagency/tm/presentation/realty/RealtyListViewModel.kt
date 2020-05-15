@@ -8,11 +8,11 @@ import com.realtyagency.tm.data.entities.FilterData
 import com.realtyagency.tm.domain.repository.FavoriteRepository
 import com.realtyagency.tm.domain.repository.RealtyRepository
 import com.realtyagency.tm.presentation.detailrealty.DetailRealtyFragment
-import com.realtyagency.tm.presentation.filterrequest.FilterRequestFragment
+import com.realtyagency.tm.presentation.filter.FilterFragment
 import com.snakydesign.livedataextensions.combineLatest
 
 class RealtyListViewModel(
-    private val category: String,
+    private val category: String?,
     private val realtyRepository: RealtyRepository,
     private val favoriteRepository: FavoriteRepository
 ) : BaseViewModel() {
@@ -32,18 +32,11 @@ class RealtyListViewModel(
 
     private fun getAdverts() {
         launch {
-            if (category.isEmpty()) {
-                realtyRepository.getLocalDataBase(
-                    onSuccess = ::handleRealty,
-                    onState = ::handleState
-                )
-            } else {
-                realtyRepository.getRealtyByCategory(
-                    category,
-                    onSuccess = ::handleRealty,
-                    onState = ::handleState
-                )
-            }
+            realtyRepository.getRealtyByCategory(
+                category,
+                onSuccess = ::handleRealty,
+                onState = ::handleState
+            )
         }
     }
 
@@ -74,6 +67,13 @@ class RealtyListViewModel(
     }
 
     fun navigateToFilterRequest() {
-        navigate(NavigationEvent.PushFragment(FilterRequestFragment.newInstance(filters)))
+        navigate(
+            NavigationEvent.PushFragment(
+                FilterFragment.newInstance(
+                    category,
+                    filters
+                )
+            )
+        )
     }
 }

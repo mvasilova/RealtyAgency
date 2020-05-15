@@ -35,7 +35,7 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_list) {
     override val screenViewModel by viewModel<RealtyListViewModel>() {
         parametersOf(
             if (arguments?.get(CATEGORY_TITLE) == getString(R.string.label_all_adverts)) {
-                ""
+                null
             } else {
                 arguments?.get(CATEGORY_TITLE)
             }

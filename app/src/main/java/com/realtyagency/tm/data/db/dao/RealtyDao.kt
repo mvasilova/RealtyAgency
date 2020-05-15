@@ -23,6 +23,11 @@ interface RealtyDao {
     @Query("SELECT DISTINCT category FROM realty ORDER BY category")
     fun getCategories(): List<String>
 
-    @Query("SELECT * FROM realty WHERE category=:category ORDER BY premium DESC")
-    fun getRealtyByCategory(category: String): List<Realty>
+    @Query(
+        "SELECT * FROM realty WHERE CASE " +
+                "WHEN :category is NULL THEN category NOT null " +
+                "WHEN :category NOT NULL THEN category=:category END " +
+                "ORDER BY premium DESC"
+    )
+    fun getRealtyByCategory(category: String?): List<Realty>
 }

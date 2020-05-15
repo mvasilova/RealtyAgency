@@ -10,6 +10,7 @@ val roomModule = module {
     single { getRealtyDao(get()) }
     single { getFavoriteDao(get()) }
     single { getComparisonDao(get()) }
+    single { getFilterDao(get()) }
 }
 
 fun provideDatabase(context: Context) = RealtyAgencyDatabase.buildDataSource(context)
@@ -21,3 +22,4 @@ fun getFavoriteDao(realtyAgencyDatabase: RealtyAgencyDatabase) = realtyAgencyDat
 fun getComparisonDao(realtyAgencyDatabase: RealtyAgencyDatabase) =
     realtyAgencyDatabase.comparisonDao()
 
+fun getFilterDao(realtyAgencyDatabase: RealtyAgencyDatabase) = realtyAgencyDatabase.filterDao()

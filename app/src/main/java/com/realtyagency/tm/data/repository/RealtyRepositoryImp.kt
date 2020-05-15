@@ -60,7 +60,7 @@ class RealtyRepositoryImp(
     }
 
     override suspend fun getRealtyByCategory(
-        category: String,
+        category: String?,
         onSuccess: (List<Realty>) -> Unit,
         onState: (State) -> Unit
     ) {

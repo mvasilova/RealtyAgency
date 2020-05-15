@@ -24,6 +24,10 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="AppTheme.Chip">
+        <item name="colorPrimary">@color/colorAccent</item>
+    </style>
+
     <style name="AppTheme.TextInputLayout">
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:textColorHint">@color/bg_edit_text_hint</item>

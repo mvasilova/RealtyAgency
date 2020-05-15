@@ -30,7 +30,7 @@ interface RealtyRepository {
     suspend fun getCategories(onSuccess: (List<String>) -> Unit, onState: (State) -> Unit)
 
     suspend fun getRealtyByCategory(
-        category: String,
+        category: String?,
         onSuccess: (List<Realty>) -> Unit,
         onState: (State) -> Unit
     )

@@ -54,11 +54,16 @@
     <string name="label_criticality">Критичность</string>
     <string name="label_mark_criticality">Метка критичности:</string>
     <string name="label_type_request">Тип заявки:</string>
-    <string name="label_filter_date">Дата</string>
+    <string name="label_filter_sort">Сортировка</string>
     <string name="label_filter_new_first">Сначала новые</string>
     <string name="label_filter_old_first">Сначала старые</string>
-    <string name="label_filter_type_request">Тип заявки</string>
-    <string name="label_filter_mark_of_critical">Метка критичности</string>
+    <string name="label_filter_price_up">По возрастанию цены</string>
+    <string name="label_filter_price_down">По убыванию цены</string>
+    <string name="label_filter_type_realty">Тип недвижимости</string>
+    <string name="label_filter_type_advert">Тип объявления</string>
+    <string name="label_filter_repair">Ремонт</string>
+    <string name="label_filter_sell">Продажа</string>
+    <string name="label_filter_rent">Аренда</string>
     <string name="label_connection_error">Ошибка соединения\n с сетью</string>
     <string name="label_connection_error_description">Время ожидания соединения с сетью истекло. Пожалуйста, проверьте подключение и повторите попытку</string>
     <string name="label_server_error">Ошибка соединения\n с сервером</string>
@@ -80,6 +85,7 @@
     <string name="placeholder_acres">%1$s сот.</string>
     <string name="placeholder_kilometres">%1$s км</string>
     <string name="placeholder_comparison_name">Сравнение №%1$d</string>
+    <string name="placeholder_filter_cost">Стоимость от &lt;b>%1$d ₽&lt;/b> до &lt;b>%2$d ₽&lt;/b></string>
 
     <string name="dialog_title_request_location">Приложение \"Оргхим\" запрашивает доступ к Вашей геопозиции</string>
     <string name="dialog_message_request_location">Ваша текущая геопозиция будет отображена на карте и использована для предоставления геометки при создании заявки</string>

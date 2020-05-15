@@ -7,7 +7,7 @@ import com.realtyagency.tm.presentation.comparison.ComparisonsViewModel
 import com.realtyagency.tm.presentation.detailcomparison.DetailComparisonViewModel
 import com.realtyagency.tm.presentation.detailrealty.DetailRealtyViewModel
 import com.realtyagency.tm.presentation.favorite.FavoritesViewModel
-import com.realtyagency.tm.presentation.filterrequest.FilterRequestViewModel
+import com.realtyagency.tm.presentation.filter.FilterViewModel
 import com.realtyagency.tm.presentation.home.HomeViewModel
 import com.realtyagency.tm.presentation.main.MainViewModel
 import com.realtyagency.tm.presentation.map.MapViewModel
@@ -23,7 +23,13 @@ val viewModelModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { (category: String) -> RealtyListViewModel(category, get(), get()) }
-    viewModel { (filterData: FilterData) -> FilterRequestViewModel(filterData, get()) }
+    viewModel { (category: String, filterData: FilterData) ->
+        FilterViewModel(
+            category,
+            filterData,
+            get()
+        )
+    }
     viewModel { FavoritesViewModel(get()) }
     viewModel { MapViewModel(get()) }
     viewModel { ViewMediaFilesViewModel() }
