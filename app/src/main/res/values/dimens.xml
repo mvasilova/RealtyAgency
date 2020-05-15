@@ -11,7 +11,9 @@
     <dimen name="fab_custom_big_size">50dp</dimen>
 
     <dimen name="view_height_1">1dp</dimen>
+    <dimen name="view_height_2">2dp</dimen>
 
+    <dimen name="image_height_80">80dp</dimen>
     <dimen name="image_height_220">220dp</dimen>
 
     <dimen name="button_height_36">36dp</dimen>
@@ -47,5 +49,10 @@
     <dimen name="default_margin_24">24dp</dimen>
     <dimen name="default_margin_32">32dp</dimen>
     <dimen name="default_margin_60">60dp</dimen>
+
+    <dimen name="table_row_width">110dp</dimen>
+    <dimen name="table_row_height">60dp</dimen>
+    <dimen name="table_column_width">150dp</dimen>
+    <dimen name="table_column_height">200dp</dimen>
 
 </resources>

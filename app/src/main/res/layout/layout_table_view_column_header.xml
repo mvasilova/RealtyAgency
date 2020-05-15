@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerColumnHeader"
+    android:layout_width="@dimen/table_column_width"
+    android:layout_height="@dimen/table_column_height"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/tvColumnHeaderPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvColumnHeader"
+            style="@style/Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:minLines="2"
+            android:padding="@dimen/default_margin_4"
+            tools:text="Header Data" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:layout_margin="@dimen/default_margin_4"
+        android:src="@drawable/ic_request_remove_file"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height_1"
+        android:layout_gravity="bottom"
+        android:background="@color/colorLightView" />
+
+    <View
+        android:id="@+id/viewStartColumn"
+        android:layout_width="@dimen/view_height_2"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorLightView"
+        android:visibility="gone" />
+
+</FrameLayout>

@@ -148,4 +148,22 @@
     <string name="date_pattern_dmy">dd MMM yyyy</string>
     <string name="date_pattern_dmy_time">dd MMM yyyy HH:mm</string>
 
+    <string-array name="realty_parameters">
+        <item>Стоимость:</item>
+        <item>Тип:</item>
+        <item>Дата размещения</item>
+        <item>Количество комнат:</item>
+        <item>Количество этажей в доме:</item>
+        <item>Этаж квартиры:</item>
+        <item>Площадь помещения:</item>
+        <item>Площадь участка:</item>
+        <item>Тип жилья:</item>
+        <item>Лифт:</item>
+        <item>Ремонт:</item>
+        <item>Расстояние до центра:</item>
+        <item>Год постройки:</item>
+        <item>Адрес:</item>
+        <item>Описание:</item>
+    </string-array>
+
 </resources>

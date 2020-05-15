@@ -13,7 +13,9 @@ class DetailComparisonViewModel(
 
     fun removeItemRealtyToList(realty: Realty) {
         launch {
-            comparisonRepository.removeItemRealtyToList(comparisonId, realty, {}, ::handleError)
+            if (comparisons.value?.realty?.size ?: 0 > 1) {
+                comparisonRepository.removeItemRealtyToList(comparisonId, realty, {}, ::handleError)
+            }
         }
     }
 }

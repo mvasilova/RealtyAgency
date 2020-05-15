@@ -30,6 +30,12 @@ fun Double.formatWithDot() = String.format(Locale.US, "%.5f", this)
 
 fun Double.equalsValues(value: Double?) = "%.7f".format(this) == "%.7f".format(value)
 
+fun Int?.toStringOrNotData(): String = this?.toString() ?: "н/д"
+
+fun Double?.toStringOrNotData(): String = this?.toString() ?: "н/д"
+
+fun String?.toStringOrNotData(): String = this ?: "н/д"
+
 fun <T> AbsDelegationAdapter<T>.setData(data: T) {
     items = data
     notifyDataSetChanged()
