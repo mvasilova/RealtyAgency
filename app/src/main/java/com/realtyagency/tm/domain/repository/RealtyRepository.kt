@@ -2,6 +2,7 @@ package com.realtyagency.tm.domain.repository
 
 import com.realtyagency.tm.app.platform.State
 import com.realtyagency.tm.data.db.entities.Realty
+import com.realtyagency.tm.data.entities.FilterData
 import com.realtyagency.tm.data.entities.response.FirebaseDataBaseResponse
 
 interface RealtyRepository {
@@ -29,8 +30,9 @@ interface RealtyRepository {
 
     suspend fun getCategories(onSuccess: (List<String>) -> Unit, onState: (State) -> Unit)
 
-    suspend fun getRealtyByCategory(
+    suspend fun getRealtyByFilters(
         category: String?,
+        filters: FilterData,
         onSuccess: (List<Realty>) -> Unit,
         onState: (State) -> Unit
     )

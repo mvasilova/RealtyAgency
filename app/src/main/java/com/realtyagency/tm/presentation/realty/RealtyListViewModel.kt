@@ -32,8 +32,9 @@ class RealtyListViewModel(
 
     private fun getAdverts() {
         launch {
-            realtyRepository.getRealtyByCategory(
+            realtyRepository.getRealtyByFilters(
                 category,
+                filters,
                 onSuccess = ::handleRealty,
                 onState = ::handleState
             )
@@ -60,6 +61,7 @@ class RealtyListViewModel(
 
     fun applyFilters(data: FilterData) {
         filters = data
+        getAdverts()
     }
 
     fun navigateToDetailRealty(realty: Realty) {

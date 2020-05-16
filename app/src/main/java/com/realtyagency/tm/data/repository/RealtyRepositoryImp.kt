@@ -5,6 +5,7 @@ import com.realtyagency.tm.app.platform.ErrorHandler
 import com.realtyagency.tm.app.platform.State
 import com.realtyagency.tm.data.db.dao.RealtyDao
 import com.realtyagency.tm.data.db.entities.Realty
+import com.realtyagency.tm.data.entities.FilterData
 import com.realtyagency.tm.data.entities.response.FirebaseDataBaseResponse
 import com.realtyagency.tm.data.network.retrofit.ApiFirebase
 import com.realtyagency.tm.domain.repository.RealtyRepository
@@ -59,13 +60,14 @@ class RealtyRepositoryImp(
         }
     }
 
-    override suspend fun getRealtyByCategory(
+    override suspend fun getRealtyByFilters(
         category: String?,
+        filters: FilterData,
         onSuccess: (List<Realty>) -> Unit,
         onState: (State) -> Unit
     ) {
         execute(onSuccess = onSuccess, onState = onState) {
-            realtyDao.getRealtyByCategory(category)
+            realtyDao.getRealtyByFilters(category, filters)
         }
     }
 

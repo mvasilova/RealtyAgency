@@ -1,6 +1,7 @@
 package com.realtyagency.tm.presentation.realty
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.GridLayoutManager
@@ -78,6 +79,9 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_list) {
 
     private fun handleAdverts(list: List<Realty>?) {
         realtyAdapter.items = list
+        Handler().postDelayed({
+            rvList.smoothScrollToPosition(0)
+        }, 200)
     }
 
     private fun setupAdverts() {
@@ -97,7 +101,6 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_list) {
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     fun onFilterRequestEvent(event: FilterRequestEvent) {
-        rvList.scrollToPosition(0)
         screenViewModel.applyFilters(event.data)
 
         val stickyEvent = EventBus.getDefault().getStickyEvent(FilterRequestEvent::class.java)

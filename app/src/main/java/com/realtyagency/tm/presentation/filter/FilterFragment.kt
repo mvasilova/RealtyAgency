@@ -108,8 +108,8 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
             when (it.realtySort) {
                 FilterSort.DATE_DESC -> rbFilterNewFirst.isChecked = true
                 FilterSort.DATE_ASC -> rbFilterOldFirst.isChecked = true
-                FilterSort.COST_DESC -> rbFilterPriceUp.isChecked = true
-                FilterSort.COST_ASC -> rbFilterPriceDown.isChecked = true
+                FilterSort.COST_ASC -> rbFilterPriceUp.isChecked = true
+                FilterSort.COST_DESC -> rbFilterPriceDown.isChecked = true
             }
 
             it.realtyCost?.let {
@@ -203,13 +203,13 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
 
         rbFilterPriceUp.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                screenViewModel.setRealtySort(FilterSort.COST_DESC)
+                screenViewModel.setRealtySort(FilterSort.COST_ASC)
             }
         }
 
         rbFilterPriceDown.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                screenViewModel.setRealtySort(FilterSort.COST_ASC)
+                screenViewModel.setRealtySort(FilterSort.COST_DESC)
             }
         }
 
