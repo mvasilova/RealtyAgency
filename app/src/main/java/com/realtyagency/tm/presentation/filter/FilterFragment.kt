@@ -164,7 +164,8 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
         sliderRealtyCost.valueFrom = Float.MIN_VALUE
 
         sliderRealtyCost.valueFrom = realtyCost.first.toFloat()
-        sliderRealtyCost.valueTo = realtyCost.second.toFloat()
+        sliderRealtyCost.valueTo =
+            if (realtyCost.first == realtyCost.second) realtyCost.second.toFloat() + 1 else realtyCost.second.toFloat()
 
         sliderRealtyCost.setValues(
             realtyCost.first.toFloat(),
