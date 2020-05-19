@@ -54,10 +54,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/content_connection_error"
+            android:tint="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@id/tvConnectionErrorLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_connection_error" />
+            app:srcCompat="@drawable/ic_realty_home_big" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

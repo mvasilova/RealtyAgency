@@ -107,6 +107,9 @@ abstract class BaseActivity(@LayoutRes val layoutResId: Int) : AppCompatActivity
                 R.string.label_common_error,
                 R.string.label_common_error_description
             ).show(supportFragmentManager, DIALOG_FULL_SCREEN_TAG)
+            is Failure.NetworkConnection -> if (dialogNotAlreadyShown(DIALOG_FULL_SCREEN_TAG)) FullScreenDialog.newInstance(
+                R.layout.fragment_connection_error
+            ).show(supportFragmentManager, DIALOG_FULL_SCREEN_TAG)
         }
     }
 

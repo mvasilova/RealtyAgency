@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Агентсво недвижимости \"ПНК\"</string>
-    <string name="app_name_full">Агентсво недвижимости\n\"Первая недвижимость Кубани\"</string>
+    <string name="app_name">Агентство недвижимости \"ПНК\"</string>
+    <string name="app_name_full">Агентство недвижимости\n\"Первая недвижимость Кубани\"</string>
     <string name="realty_address">г. Горячий Ключ, ул. Ленина, 195б, офис 3</string>
     <string name="realty_phones">8 (918) 412–95–97, 8 (918) 350–35–97</string>
 
