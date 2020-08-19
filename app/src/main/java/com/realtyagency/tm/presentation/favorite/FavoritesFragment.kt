@@ -19,7 +19,7 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_list) {
         get() = getString(R.string.title_favorites)
 
     override val toolbarIconFilterVisible: Boolean
-        get() = true
+        get() = false
 
     override val screenViewModel by viewModel<FavoritesViewModel>()
 
