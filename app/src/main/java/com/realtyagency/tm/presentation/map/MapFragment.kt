@@ -21,7 +21,6 @@ import com.realtyagency.tm.app.extensions.observeEvent
 import com.realtyagency.tm.app.platform.BaseFragment
 import com.realtyagency.tm.presentation.common.ScrollMapFragment
 import kotlinx.android.synthetic.main.fragment_map.*
-import kotlinx.android.synthetic.main.fragment_new_request.tvCoordinates
 import kotlinx.android.synthetic.main.layout_progress.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

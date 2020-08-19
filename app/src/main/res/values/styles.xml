@@ -28,18 +28,6 @@
         <item name="colorPrimary">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.TextInputLayout">
-        <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:textColorHint">@color/bg_edit_text_hint</item>
-        <item name="colorError">@color/colorDarkError</item>
-    </style>
-
-    <style name="AppTheme.EditText">
-        <item name="colorControlNormal">@color/colorView</item>
-        <item name="colorControlActivated">@color/colorPrimary</item>
-        <item name="colorError">@color/colorDarkError</item>
-    </style>
-
     <style name="PrimaryActionButton" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
@@ -53,24 +41,12 @@
         <item name="android:textSize">@dimen/font_16</item>
     </style>
 
-    <style name="Text.20">
-        <item name="android:textSize">@dimen/font_20</item>
-    </style>
-
     <style name="Text.WhiteLightTransparent">
         <item name="android:textColor">@color/colorWhiteLightTransparent</item>
     </style>
 
-    <style name="Text.WhiteLightTransparent.12">
-        <item name="android:textSize">@dimen/font_12</item>
-    </style>
-
     <style name="Text.Hint">
         <item name="android:textColor">@color/colorHint</item>
-    </style>
-
-    <style name="Text.Hint.12">
-        <item name="android:textSize">@dimen/font_12</item>
     </style>
 
     <style name="Text.Hint.16">
@@ -81,33 +57,12 @@
         <item name="android:textColor">@color/colorLightHint</item>
     </style>
 
-    <style name="Text.Accent">
-        <item name="android:textColor">@color/colorAccent</item>
-    </style>
-
-    <style name="Text.Error">
-        <item name="android:textColor">@color/colorRed</item>
-        <item name="android:textSize">@dimen/font_12</item>
-    </style>
-
     <style name="Text.White">
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
-    <style name="Text.White.12">
-        <item name="android:textSize">@dimen/font_12</item>
-    </style>
-
-    <style name="Text.White.20">
-        <item name="android:textSize">@dimen/font_20</item>
-    </style>
-
     <style name="Text.Bold">
         <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Text.Bold.16">
-        <item name="android:textSize">@dimen/font_16</item>
     </style>
 
     <style name="Text.Bold.20">
@@ -171,51 +126,6 @@
         <item name="android:layoutDirection">rtl</item>
     </style>
 
-    <style name="EditText" parent="Widget.AppCompat.EditText">
-        <item name="android:layout_height">@dimen/edit_text_height</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:paddingBottom">@dimen/default_margin_10</item>
-        <item name="android:inputType">text</item>
-        <item name="android:textSize">@dimen/font_16</item>
-        <item name="android:textColor">@color/colorText</item>
-        <item name="android:textColorHint">@color/bg_edit_text_hint</item>
-    </style>
-
-    <style name="EditText.Theme">
-        <item name="android:theme">@style/AppTheme.EditText</item>
-        <item name="android:background">@drawable/bg_edit_text_login</item>
-    </style>
-
-    <style name="EditText.Login">
-        <item name="android:paddingBottom">@dimen/default_margin_4</item>
-        <item name="android:background">@drawable/bg_edit_text_login</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:maxLength">32</item>
-    </style>
-
-    <style name="EditText.Login.Password">
-        <item name="android:inputType">textPassword</item>
-    </style>
-
-    <style name="LoginTextInputLayout" parent="Widget.Design.TextInputLayout">
-        <item name="hintTextAppearance">@style/HintTextAppearance</item>
-        <item name="android:theme">@style/AppTheme.TextInputLayout</item>
-    </style>
-
-    <style name="TextFieldInputLayout" parent="Widget.Design.TextInputLayout">
-        <item name="errorTextAppearance">@style/ErrorTextAppearance</item>
-        <item name="hintTextAppearance">@style/HintTextAppearance</item>
-        <item name="counterTextColor">@color/colorHint</item>
-    </style>
-
-    <style name="ErrorTextAppearance" parent="TextAppearance.Design.Error">
-        <item name="android:textColor">@color/colorRed</item>
-    </style>
-
-    <style name="HintTextAppearance" parent="TextAppearance.Design.Hint">
-        <item name="android:textColor">@color/bg_edit_text_hint</item>
-    </style>
-
     <style name="AlertDialog.Theme" parent="ThemeOverlay.AppCompat.Dialog.Alert">
         <item name="buttonBarNegativeButtonStyle">@style/AlertDialog.ButtonColor</item>
         <item name="buttonBarPositiveButtonStyle">@style/AlertDialog.ButtonColor</item>
@@ -224,14 +134,6 @@
     <style name="AlertDialog.ButtonColor" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Matisse.Zhihu.Custom">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
-        <item name="bottomToolbar.apply.textColor">@color/colorPrimary</item>
-        <item name="preview.bottomToolbar.apply.textColor">@color/colorPrimary</item>
-        <item name="item.checkCircle.backgroundColor">@color/colorPrimary</item>
     </style>
 
 </resources>

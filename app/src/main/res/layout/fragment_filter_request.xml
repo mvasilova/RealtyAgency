@@ -114,7 +114,6 @@
                 android:background="@color/colorLightView" />
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroupType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/default_margin_16"

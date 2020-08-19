@@ -13,11 +13,6 @@
     <color name="colorText">#212121</color>
     <color name="colorHint">#757575</color>
     <color name="colorRed">#F44336</color>
-    <color name="colorDarkError">#DB4437</color>
-    <color name="colorView">#C4C4C4</color>
     <color name="colorLightView">#E0E5E5E5</color>
-    <color name="colorToolbarShape">#66000000</color>
-    <color name="colorNotificationBackground">#F5F5F5</color>
     <color name="colorMediaBackground">#000000</color>
-    <color name="colorNewsPlaceholder">#B4D5C3</color>
 </resources>
