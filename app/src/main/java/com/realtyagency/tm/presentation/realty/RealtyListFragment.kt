@@ -79,9 +79,6 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_list) {
 
     private fun handleAdverts(list: List<Realty>?) {
         realtyAdapter.items = list
-        Handler().postDelayed({
-            rvList.smoothScrollToPosition(0)
-        }, 200)
     }
 
     private fun setupAdverts() {
@@ -102,6 +99,9 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_list) {
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     fun onFilterRequestEvent(event: FilterRequestEvent) {
         screenViewModel.applyFilters(event.data)
+        Handler().postDelayed({
+            rvList.smoothScrollToPosition(0)
+        }, 200)
 
         val stickyEvent = EventBus.getDefault().getStickyEvent(FilterRequestEvent::class.java)
         if (stickyEvent != null) {
