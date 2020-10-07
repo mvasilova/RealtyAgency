@@ -97,7 +97,7 @@
                 android:gravity="start"
                 tools:text="@string/placeholder_filter_cost" />
 
-            <com.google.android.material.slider.Slider
+            <com.google.android.material.slider.RangeSlider
                 android:id="@+id/sliderRealtyCost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.slider.Slider
+import com.google.android.material.slider.RangeSlider
 import com.realtyagency.tm.R
 import com.realtyagency.tm.app.extensions.getCompatDrawable
 import com.realtyagency.tm.app.extensions.observe
@@ -175,12 +175,12 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
         setRealtyCost(sliderRealtyCost)
     }
 
-    private fun setRealtyCost(slider: Slider) {
+    private fun setRealtyCost(slider: RangeSlider) {
         tvFilterCost.text = HtmlCompat.fromHtml(
             getString(
                 R.string.placeholder_filter_cost,
-                slider.minimumValue.roundToInt(),
-                slider.maximumValue.roundToInt()
+                slider.values.getOrNull(0)?.roundToInt(),
+                slider.values.getOrNull(1)?.roundToInt()
             ), HtmlCompat.FROM_HTML_MODE_COMPACT
         )
     }
@@ -214,13 +214,13 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
             }
         }
 
-        sliderRealtyCost.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+        sliderRealtyCost.addOnSliderTouchListener(object : RangeSlider.OnSliderTouchListener {
 
-            override fun onStartTrackingTouch(slider: Slider) {
+            override fun onStartTrackingTouch(slider: RangeSlider) {
                 setRealtyCost(slider)
             }
 
-            override fun onStopTrackingTouch(slider: Slider) {
+            override fun onStopTrackingTouch(slider: RangeSlider) {
                 setRealtyCost(slider)
                 screenViewModel.setRealtyCost(
                     slider.values.first().toLong() to slider.values.last().toLong()

@@ -16,8 +16,20 @@
             android:id="@+id/rvList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/default_margin_10"
+            android:paddingEnd="@dimen/default_margin_10"
             tools:listitem="@layout/item_category" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvListEmpty"
+        style="@style/Text.Hint.16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/label_list_empty"
+        android:visibility="gone" />
 
     <include layout="@layout/layout_progress" />
 

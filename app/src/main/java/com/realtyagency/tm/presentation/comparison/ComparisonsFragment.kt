@@ -2,6 +2,8 @@ package com.realtyagency.tm.presentation.comparison
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
+import androidx.core.view.setPadding
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,10 +47,12 @@ class ComparisonsFragment : BaseFragment(R.layout.fragment_list) {
 
     private fun handleComparisons(list: List<Comparison>?) {
         realtyAdapter.items = list
+        tvListEmpty.isVisible = list?.isEmpty() ?: true
     }
 
     private fun setupComparisons() {
         rvList.layoutManager = LinearLayoutManager(context)
+        rvList.setPadding(0)
         rvList.addItemDecoration(
             com.realtyagency.tm.presentation.common.DividerItemDecoration(
                 requireContext().getCompatColor(R.color.colorLightView),

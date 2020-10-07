@@ -8,6 +8,8 @@
     <string name="btn_cancel">Отмена</string>
     <string name="btn_repeat">Повторить</string>
     <string name="btn_show">Посмотреть</string>
+    <string name="btn_call">Позвонить</string>
+    <string name="btn_add_comparison">Добавить в сравнение</string>
 
     <string name="content_image_news">Изображение новости</string>
     <string name="content_filter_requests">Фильтрация заявок</string>
@@ -33,31 +35,8 @@
     <string name="label_server_error_description">Ожидание ответа от сервера превышено, обратитесь к администратору</string>
     <string name="label_common_error">Ошибка</string>
     <string name="label_common_error_description">Что-то пошло не так. Пожалуйста, попробуйте еще раз</string>
-
-    <string name="placeholder_coordinates">%1$s, %2$s</string>
-    <string name="placeholder_count_media">%1$d/%2$d</string>
-    <string name="placeholder_sq_metres">%1$s м2</string>
-    <string name="placeholder_acres">%1$s сот.</string>
-    <string name="placeholder_kilometres">%1$s км</string>
-    <string name="placeholder_comparison_name">Сравнение №%1$d</string>
-    <string name="placeholder_filter_cost">Стоимость от &lt;b>%1$d ₽&lt;/b> до &lt;b>%2$d ₽&lt;/b></string>
-
-    <string name="dialog_message_size_image_too_much">Размер прикрепляемого изображения превышает 10 МБ</string>
-    <string name="dialog_message_size_video_too_much">Размер прикрепляемого видео превышает 50 МБ</string>
-
-    <string name="dialog_realty_added_successful">Добавлено в сравнение</string>
-
-    <string name="tab_home">Главная</string>
-    <string name="tab_comparison">Сравнения</string>
-    <string name="tab_favorites">Избранное</string>
-
-    <string name="toolbar_title_filter">Фильтр</string>
-    <string name="toolbar_title_map">Карта</string>
-
     <string name="label_wait_loading">Пожалуйста, подождите идет, загрузка данных…</string>
     <string name="label_all_adverts">Все объявления</string>
-    <string name="btn_call">Позвонить</string>
-    <string name="btn_add_comparison">Добавить в сравнение</string>
     <string name="label_advert_type">Тип:</string>
     <string name="label_advert_date">Дата размещения</string>
     <string name="label_advert_count_room">Количество комнат:</string>
@@ -70,6 +49,25 @@
     <string name="label_advert_repair">Ремонт:</string>
     <string name="label_advert_distance_from_center">Расстояние до центра:</string>
     <string name="label_advert_year_of_construction">Год постройки:</string>
+    <string name="label_list_empty">Здесь пока ничего нет</string>
+
+    <string name="placeholder_coordinates">%1$s, %2$s</string>
+    <string name="placeholder_count_media">%1$d/%2$d</string>
+    <string name="placeholder_sq_metres">%1$s м2</string>
+    <string name="placeholder_acres">%1$s сот.</string>
+    <string name="placeholder_kilometres">%1$s км</string>
+    <string name="placeholder_comparison_name">Сравнение №%1$d</string>
+    <string name="placeholder_filter_cost">Стоимость от &lt;b>%1$d ₽&lt;/b> до &lt;b>%2$d ₽&lt;/b></string>
+
+    <string name="dialog_realty_added_successful">Добавлено в сравнение</string>
+
+    <string name="tab_home">Главная</string>
+    <string name="tab_comparison">Сравнения</string>
+    <string name="tab_favorites">Избранное</string>
+
+    <string name="toolbar_title_filter">Фильтр</string>
+    <string name="toolbar_title_map">Карта</string>
+
     <string name="title_favorites">Избранное</string>
     <string name="title_comparisons">Сравнения</string>
 

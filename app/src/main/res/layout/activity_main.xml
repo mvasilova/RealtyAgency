@@ -20,6 +20,7 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         app:itemBackground="?attr/selectableItemBackgroundBorderless"
         app:itemIconTint="@color/bg_bottom_bar_icon"
         app:itemTextColor="@color/bg_bottom_bar_text"

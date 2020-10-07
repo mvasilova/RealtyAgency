@@ -2,13 +2,17 @@ package com.realtyagency.tm.presentation.favorite
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.realtyagency.tm.R
 import com.realtyagency.tm.app.extensions.observe
 import com.realtyagency.tm.app.platform.BaseFragment
 import com.realtyagency.tm.app.platform.DiffCallback
+import com.realtyagency.tm.app.platform.DiffItem
 import com.realtyagency.tm.data.db.entities.Realty
+import com.realtyagency.tm.presentation.delegates.Category
+import com.realtyagency.tm.presentation.delegates.favoriteCategoryDelegate
 import com.realtyagency.tm.presentation.delegates.realtyDelegate
 import kotlinx.android.synthetic.main.fragment_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,9 +21,6 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_list) {
 
     override val toolbarTitle: Any?
         get() = getString(R.string.title_favorites)
-
-    override val toolbarIconFilterVisible: Boolean
-        get() = false
 
     override val screenViewModel by viewModel<FavoritesViewModel>()
 
@@ -30,7 +31,8 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_list) {
                 screenViewModel.navigateToDetailRealty(it)
             }, {
                 screenViewModel.changeFavorite(it)
-            })
+            }),
+            favoriteCategoryDelegate()
         )
     }
 
@@ -45,7 +47,15 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_list) {
 
     private fun handleAdverts(list: List<Realty>?) {
         list?.forEach { it.isFavorite = true }
-        realtyAdapter.items = list
+        val group = list?.groupBy { it.category }
+        val items = mutableListOf<DiffItem>().apply {
+            group?.forEach {
+                add(Category(it.key.orEmpty()))
+                addAll(it.value)
+            }
+        }
+        realtyAdapter.items = items
+        tvListEmpty.isVisible = items.isEmpty()
     }
 
     private fun setupAdverts() {
@@ -53,10 +63,16 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_list) {
         (rvList.layoutManager as? GridLayoutManager)?.spanSizeLookup =
             object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
-                    return if ((realtyAdapter.items[position] as? Realty)?.premium == true) {
-                        2
-                    } else {
-                        1
+                    return when {
+                        (realtyAdapter.items[position] as? Realty)?.premium == true -> {
+                            2
+                        }
+                        realtyAdapter.items[position] is Category -> {
+                            2
+                        }
+                        else -> {
+                            1
+                        }
                     }
                 }
             }
