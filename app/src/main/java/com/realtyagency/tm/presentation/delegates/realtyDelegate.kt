@@ -30,6 +30,7 @@ fun realtyDelegate(clickListener: (Realty) -> Unit, clickListenerFavorite: (Real
                 .load(item.photos?.get(0))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .optionalCenterCrop()
+                .placeholder(R.drawable.ic_placeholder_request)
                 .into(DrawableImageViewTarget(ivImage).waitForLayout())
 
             llCard.setBackgroundColor(
