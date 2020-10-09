@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import com.hannesdorfmann.adapterdelegates4.AbsDelegationAdapter
 import com.realtyagency.tm.R
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,6 +36,12 @@ fun Int?.toStringOrNotData(): String = this?.toString() ?: "н/д"
 fun Double?.toStringOrNotData(): String = this?.toString() ?: "н/д"
 
 fun String?.toStringOrNotData(): String = this ?: "н/д"
+
+fun Long?.formatToCurrency(): String {
+    val format = NumberFormat.getCurrencyInstance(Locale("ru","RU"))
+    format.maximumFractionDigits = 0
+    return format.format(this ?: 0)
+}
 
 fun <T> AbsDelegationAdapter<T>.setData(data: T) {
     items = data

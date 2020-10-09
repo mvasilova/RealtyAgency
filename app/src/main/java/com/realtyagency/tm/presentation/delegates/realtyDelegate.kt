@@ -5,18 +5,15 @@ import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateLayoutContainer
 import com.realtyagency.tm.R
 import com.realtyagency.tm.app.di.module.GlideApp
+import com.realtyagency.tm.app.extensions.formatToCurrency
 import com.realtyagency.tm.app.extensions.getCompatColor
 import com.realtyagency.tm.app.extensions.getCompatDrawable
 import com.realtyagency.tm.app.platform.DiffItem
 import com.realtyagency.tm.data.db.entities.Realty
 import kotlinx.android.synthetic.main.item_realty.*
-import java.text.NumberFormat
 
 fun realtyDelegate(clickListener: (Realty) -> Unit, clickListenerFavorite: (Realty) -> Unit) =
     adapterDelegateLayoutContainer<Realty, DiffItem>(R.layout.item_realty) {
-
-        val format = NumberFormat.getCurrencyInstance()
-        format.maximumFractionDigits = 0
 
         containerView.setOnClickListener {
             clickListener.invoke(item)
@@ -28,7 +25,7 @@ fun realtyDelegate(clickListener: (Realty) -> Unit, clickListenerFavorite: (Real
 
         bind {
             tvName.text = item.name
-            tvCost.text = format.format(item.parameters?.cost)
+            tvCost.text = item.parameters?.cost.formatToCurrency()
             GlideApp.with(context)
                 .load(item.photos?.get(0))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

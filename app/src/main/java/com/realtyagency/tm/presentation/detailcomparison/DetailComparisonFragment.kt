@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import com.realtyagency.tm.R
+import com.realtyagency.tm.app.extensions.formatToCurrency
 import com.realtyagency.tm.app.extensions.observe
 import com.realtyagency.tm.app.extensions.toDateFormatGmt
 import com.realtyagency.tm.app.extensions.toStringOrNotData
@@ -12,7 +13,6 @@ import com.realtyagency.tm.data.db.entities.Comparison
 import kotlinx.android.synthetic.main.fragment_detail_comparison.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
-import java.text.NumberFormat
 
 class DetailComparisonFragment : BaseFragment(R.layout.fragment_detail_comparison) {
 
@@ -44,9 +44,6 @@ class DetailComparisonFragment : BaseFragment(R.layout.fragment_detail_compariso
     }
 
     private fun handleComparisons(comparison: Comparison?) {
-        val format = NumberFormat.getCurrencyInstance()
-        format.maximumFractionDigits = 0
-
         val columns = comparison?.realty.orEmpty()
         val rows = resources.getStringArray(R.array.realty_parameters).asList()
         val matrix: MutableList<MutableList<String>> = mutableListOf()
@@ -54,7 +51,7 @@ class DetailComparisonFragment : BaseFragment(R.layout.fragment_detail_compariso
         matrix.apply {
             addAll(
                 0,
-                mutableListOf(columns.map { format.format(it.parameters?.cost) ?: "" }
+                mutableListOf(columns.map { it.parameters?.cost.formatToCurrency() }
                     .toMutableList())
             )
             addAll(
