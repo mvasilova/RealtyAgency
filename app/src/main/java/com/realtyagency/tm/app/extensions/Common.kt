@@ -40,3 +40,10 @@ fun <T> AbsDelegationAdapter<T>.setData(data: T) {
     items = data
     notifyDataSetChanged()
 }
+
+fun <T : Any> List<T?>.ifNotNullOrEmpty(action: (List<T>) -> Unit) {
+    val list = filterNotNull()
+    if (!list.isNullOrEmpty()) {
+        action.invoke(list)
+    }
+}

@@ -54,40 +54,39 @@ class FilterViewModel(
         userFilters.value?.realtyTypeSell = first to flag
     }
 
-    fun changeTypeAdvert(item: RealtyTypeItems) {
-        val list = mutableListOf<String?>()
-        list.addAll(userFilters.value?.advertType.orEmpty())
-        if (list.contains(item.realtyTypeName)) {
-            list.remove(item.realtyTypeName)
-        } else {
-            list.add(item.realtyTypeName)
+    fun changeFilterTypes(item: RealtyTypeItems) {
+        when {
+            availableFilters.value?.advertType?.contains(item.realtyTypeName) == true -> {
+                val list = mutableListOf<String?>()
+                list.addAll(userFilters.value?.advertType.orEmpty())
+                userFilters.value?.advertType = updateUserFilterList(list, item)
+                userFilters.refresh()
+            }
+            availableFilters.value?.realtyType?.contains(item.realtyTypeName) == true -> {
+                val list = mutableListOf<String?>()
+                list.addAll(userFilters.value?.realtyType.orEmpty())
+                userFilters.value?.realtyType = updateUserFilterList(list, item)
+                userFilters.refresh()
+            }
+            availableFilters.value?.realtyRepair?.contains(item.realtyTypeName) == true -> {
+                val list = mutableListOf<String?>()
+                list.addAll(userFilters.value?.realtyRepair.orEmpty())
+                userFilters.value?.realtyRepair = updateUserFilterList(list, item)
+                userFilters.refresh()
+            }
         }
-        userFilters.value?.advertType = list
-        userFilters.refresh()
     }
 
-    fun changeTypeRealty(item: RealtyTypeItems) {
-        val list = mutableListOf<String?>()
-        list.addAll(userFilters.value?.realtyType.orEmpty())
+    private fun updateUserFilterList(
+        list: MutableList<String?>,
+        item: RealtyTypeItems
+    ): MutableList<String?> {
         if (list.contains(item.realtyTypeName)) {
             list.remove(item.realtyTypeName)
         } else {
             list.add(item.realtyTypeName)
         }
-        userFilters.value?.realtyType = list
-        userFilters.refresh()
-    }
-
-    fun changeRepairRealty(item: RealtyTypeItems) {
-        val list = mutableListOf<String?>()
-        list.addAll(userFilters.value?.realtyRepair.orEmpty())
-        if (list.contains(item.realtyTypeName)) {
-            list.remove(item.realtyTypeName)
-        } else {
-            list.add(item.realtyTypeName)
-        }
-        userFilters.value?.realtyRepair = list
-        userFilters.refresh()
+        return list
     }
 
 

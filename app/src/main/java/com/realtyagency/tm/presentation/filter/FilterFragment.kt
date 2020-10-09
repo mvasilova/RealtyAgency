@@ -7,16 +7,16 @@ import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.slider.RangeSlider
 import com.realtyagency.tm.R
-import com.realtyagency.tm.app.extensions.getCompatDrawable
-import com.realtyagency.tm.app.extensions.observe
-import com.realtyagency.tm.app.extensions.refresh
-import com.realtyagency.tm.app.extensions.setData
+import com.realtyagency.tm.app.extensions.*
 import com.realtyagency.tm.app.platform.BaseFragment
+import com.realtyagency.tm.app.platform.DisplayableItem
 import com.realtyagency.tm.data.entities.FilterData
 import com.realtyagency.tm.data.enums.FilterSort
 import com.realtyagency.tm.presentation.common.CustomStableIdAdapter
+import com.realtyagency.tm.presentation.filter.delegates.FilterTitle
 import com.realtyagency.tm.presentation.filter.delegates.RealtyTypeItems
 import com.realtyagency.tm.presentation.filter.delegates.filterRequestDelegate
+import com.realtyagency.tm.presentation.filter.delegates.filterTitleDelegate
 import kotlinx.android.synthetic.main.fragment_filter_request.*
 import kotlinx.android.synthetic.main.layout_progress.*
 import kotlinx.android.synthetic.main.toolbar_with_icon.*
@@ -39,26 +39,11 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
         parametersOf(arguments?.getString(FILTER_CATEGORY), arguments?.getSerializable(FILTER_DATA))
     }
 
-    private val filterAdvertTypeAdapter by lazy {
+    private val filterAdvertAdapter by lazy {
         CustomStableIdAdapter(
+            filterTitleDelegate(),
             filterRequestDelegate {
-                screenViewModel.changeTypeAdvert(it)
-            }
-        )
-    }
-
-    private val filterRealtyTypeAdapter by lazy {
-        CustomStableIdAdapter(
-            filterRequestDelegate {
-                screenViewModel.changeTypeRealty(it)
-            }
-        )
-    }
-
-    private val filterRealtyRepairAdapter by lazy {
-        CustomStableIdAdapter(
-            filterRequestDelegate {
-                screenViewModel.changeRepairRealty(it)
+                screenViewModel.changeFilterTypes(it)
             }
         )
     }
@@ -76,27 +61,27 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
     }
 
     private fun handleAvailableFilters(filterData: FilterData?) {
-        filterData?.let {
+        filterData?.let { data ->
+            val adapterList = mutableListOf<DisplayableItem>()
 
-            it.realtyCost?.let { setupSlider(it) }
+            data.advertType?.ifNotNullOrEmpty {
+                adapterList.add(FilterTitle(getString(R.string.label_filter_type_advert)))
+                adapterList.addAll(it.mapIndexed { index, s -> RealtyTypeItems(index, s) })
+            }
 
-            filterAdvertTypeAdapter.setData(mutableListOf<RealtyTypeItems>().apply {
-                it.advertType?.filterNotNull()?.forEachIndexed { index, string ->
-                    add(RealtyTypeItems(index, string))
-                }
-            })
+            data.realtyType?.ifNotNullOrEmpty {
+                adapterList.add(FilterTitle(getString(R.string.label_filter_type_realty)))
+                adapterList.addAll(it.mapIndexed { index, s -> RealtyTypeItems(index, s) })
+            }
 
-            filterRealtyTypeAdapter.setData(mutableListOf<RealtyTypeItems>().apply {
-                it.realtyType?.filterNotNull()?.forEachIndexed { index, string ->
-                    add(RealtyTypeItems(index, string))
-                }
-            })
+            data.realtyRepair?.ifNotNullOrEmpty {
+                adapterList.add(FilterTitle(getString(R.string.label_filter_repair)))
+                adapterList.addAll(it.mapIndexed { index, s -> RealtyTypeItems(index, s) })
+            }
 
-            filterRealtyRepairAdapter.setData(mutableListOf<RealtyTypeItems>().apply {
-                it.realtyRepair?.filterNotNull()?.forEachIndexed { index, string ->
-                    add(RealtyTypeItems(index, string))
-                }
-            })
+            data.realtyCost?.let { setupSlider(it) }
+
+            filterAdvertAdapter.setData(adapterList)
 
             screenViewModel.userFilters.refresh()
         }
@@ -131,29 +116,27 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
                 chipRent.isChecked = it
             }
 
-            it.advertType?.let { list ->
-                setCheckableItems(list, filterAdvertTypeAdapter)
-            }
-
-            it.realtyType?.let { list ->
-                setCheckableItems(list, filterRealtyTypeAdapter)
-            }
-
-            it.realtyRepair?.let { list ->
-                setCheckableItems(list, filterRealtyRepairAdapter)
-            }
+            setCheckableItems(
+                listOf(
+                    it.advertType.orEmpty(),
+                    it.realtyType.orEmpty(),
+                    it.realtyRepair.orEmpty()
+                ).flatten(), filterAdvertAdapter
+            )
 
         }
     }
 
     private fun setCheckableItems(list: List<String?>, adapter: CustomStableIdAdapter) {
         adapter.items?.forEach { item ->
-            if (list.contains((item as RealtyTypeItems).realtyTypeName)) {
-                item.checked = true
-                adapter.notifyDataSetChanged()
-            } else {
-                item.checked = false
-                adapter.notifyDataSetChanged()
+            if (item is RealtyTypeItems) {
+                if (list.contains(item.realtyTypeName)) {
+                    item.checked = true
+                    adapter.notifyDataSetChanged()
+                } else {
+                    item.checked = false
+                    adapter.notifyDataSetChanged()
+                }
             }
         }
     }
@@ -237,17 +220,9 @@ class FilterFragment : BaseFragment(R.layout.fragment_filter_request) {
     }
 
     private fun setupFilters() {
-        rvFilterAdvertType.layoutManager = LinearLayoutManager(context)
-        rvFilterAdvertType.isNestedScrollingEnabled = false
-        rvFilterAdvertType.adapter = filterAdvertTypeAdapter
-
-        rvFilterRealtyType.layoutManager = LinearLayoutManager(context)
-        rvFilterRealtyType.isNestedScrollingEnabled = false
-        rvFilterRealtyType.adapter = filterRealtyTypeAdapter
-
-        rvFilterRealtyRepair.layoutManager = LinearLayoutManager(context)
-        rvFilterRealtyRepair.isNestedScrollingEnabled = false
-        rvFilterRealtyRepair.adapter = filterRealtyRepairAdapter
+        rvFilterAdvert.layoutManager = LinearLayoutManager(context)
+        rvFilterAdvert.isNestedScrollingEnabled = false
+        rvFilterAdvert.adapter = filterAdvertAdapter
     }
 
     companion object {

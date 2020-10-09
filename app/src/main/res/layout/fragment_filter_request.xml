@@ -118,8 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/default_margin_16"
                 android:layout_marginTop="@dimen/default_margin_8"
-                android:layout_marginRight="@dimen/default_margin_16"
-                android:layout_marginBottom="@dimen/default_margin_8">
+                android:layout_marginRight="@dimen/default_margin_16">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipSell"
@@ -139,101 +138,10 @@
 
             </com.google.android.material.chip.ChipGroup>
 
-            <View
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFilterAdvert"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/view_height_1"
-                android:layout_marginLeft="@dimen/default_margin_16"
-                android:layout_marginRight="@dimen/default_margin_16"
-                android:background="@color/colorLightView" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/Text.Hint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginStart="@dimen/default_margin_16"
-                    android:layout_marginTop="@dimen/default_margin_24"
-                    android:layout_marginBottom="@dimen/default_margin_8"
-                    android:text="@string/label_filter_type_advert" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvFilterAdvertType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_filter_type_realty" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/view_height_1"
-                android:layout_marginLeft="@dimen/default_margin_16"
-                android:layout_marginTop="@dimen/default_margin_8"
-                android:layout_marginRight="@dimen/default_margin_16"
-                android:background="@color/colorLightView" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/Text.Hint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginStart="@dimen/default_margin_16"
-                    android:layout_marginTop="@dimen/default_margin_24"
-                    android:layout_marginBottom="@dimen/default_margin_8"
-                    android:text="@string/label_filter_type_realty" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvFilterRealtyType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_filter_type_realty" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/view_height_1"
-                android:layout_marginLeft="@dimen/default_margin_16"
-                android:layout_marginTop="@dimen/default_margin_20"
-                android:layout_marginRight="@dimen/default_margin_16"
-                android:background="@color/colorLightView" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/Text.Hint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginStart="@dimen/default_margin_16"
-                    android:layout_marginTop="@dimen/default_margin_24"
-                    android:layout_marginBottom="@dimen/default_margin_8"
-                    android:text="@string/label_filter_repair" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvFilterRealtyRepair"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_filter_type_realty" />
-
-            </LinearLayout>
-
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
