@@ -33,7 +33,7 @@ class RealtyListFragment : BaseFragment(R.layout.fragment_list) {
     override val toolbarDrawableClose: Int?
         get() = R.drawable.ic_toolbar_back
 
-    override val screenViewModel by viewModel<RealtyListViewModel>() {
+    override val screenViewModel by viewModel<RealtyListViewModel> {
         parametersOf(
             if (arguments?.get(CATEGORY_TITLE) == getString(R.string.label_all_adverts)) {
                 null

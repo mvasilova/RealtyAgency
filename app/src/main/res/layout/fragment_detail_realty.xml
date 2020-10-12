@@ -105,7 +105,7 @@
                     android:layout_marginBottom="@dimen/default_margin_16"
                     android:background="@color/colorLightView" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     style="@style/Text.Hint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

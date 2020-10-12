@@ -2,7 +2,6 @@ package com.realtyagency.tm.app
 
 import android.app.Application
 import com.facebook.stetho.Stetho
-import com.google.android.gms.maps.MapsInitializer
 import com.realtyagency.tm.BuildConfig
 import com.realtyagency.tm.app.di.module.*
 import org.koin.android.ext.koin.androidContext

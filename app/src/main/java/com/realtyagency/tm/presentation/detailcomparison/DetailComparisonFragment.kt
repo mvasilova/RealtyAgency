@@ -22,7 +22,7 @@ class DetailComparisonFragment : BaseFragment(R.layout.fragment_detail_compariso
     override val toolbarDrawableClose: Int?
         get() = R.drawable.ic_toolbar_back
 
-    override val screenViewModel by viewModel<DetailComparisonViewModel>() {
+    override val screenViewModel by viewModel<DetailComparisonViewModel> {
         parametersOf(idComparison)
     }
 
