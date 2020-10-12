@@ -31,6 +31,9 @@ interface ComparisonDao {
     @Transaction
     fun addItemRealtyToList(comparisonId: Int, item: Realty): Int {
         val list = getComparisonById(comparisonId).realty.toMutableList()
+        if (list.contains(item)) {
+            list.remove(item)
+        }
         list.add(item)
         updateRealtyOnList(comparisonId, list)
         return comparisonId
